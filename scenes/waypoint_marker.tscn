@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bisocnccuvmb0"]
+
+[ext_resource type="Script" uid="uid://dxbj16tpyuga5" path="res://scenes/waypoint_marker.gd" id="1_otagc"]
+[ext_resource type="Texture2D" uid="uid://c34votovscthl" path="res://assets/arrow.png" id="1_ov4de"]
+
+[node name="WaypointMarker" type="Node3D"]
+script = ExtResource("1_otagc")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7214949, 0)
+modulate = Color(1, 0.81666666, 0.45, 1)
+pixel_size = 0.02
+billboard = 2
+texture_filter = 2
+texture = ExtResource("1_ov4de")

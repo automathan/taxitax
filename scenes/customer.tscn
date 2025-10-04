@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj25b8g2m2j31"]
+
+[ext_resource type="Script" uid="uid://bidrsty4f5le2" path="res://scenes/customer.gd" id="1_8qg4y"]
+[ext_resource type="Texture2D" uid="uid://dpnnqp601ilf1" path="res://assets/dude.png" id="2_rjbu2"]
+[ext_resource type="FontFile" uid="uid://dm08ctlxvsg5a" path="res://assets/Short_Story.ttf" id="3_qqxhk"]
+
+[node name="Customer" type="Node3D"]
+script = ExtResource("1_8qg4y")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32939002, 0)
+pixel_size = 0.02
+billboard = 2
+texture_filter = 2
+texture = ExtResource("2_rjbu2")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9786525, 0)
+billboard = 1
+texture_filter = 2
+modulate = Color(1, 0.7935, 0.41000003, 1)
+outline_modulate = Color(0, 0, 0, 0.3764706)
+text = "Taxi!"
+font = ExtResource("3_qqxhk")
+font_size = 21
+outline_size = 7

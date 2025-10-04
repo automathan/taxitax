@@ -1,0 +1,202 @@
+[gd_scene load_steps=21 format=3 uid="uid://dlhki6ih13wds"]
+
+[ext_resource type="Script" uid="uid://bwtqtyou4avfi" path="res://car.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://ufcjwy02k8uo" path="res://camera.gd" id="1_h2yge"]
+[ext_resource type="Texture2D" uid="uid://bwyyyscnoesmu" path="res://icon.svg" id="1_ig7tw"]
+[ext_resource type="Shader" uid="uid://c0sj1qhrf8m6g" path="res://cel.gdshader" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://s1wgiuyjcpys" path="res://assets/window.png" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://cj25b8g2m2j31" path="res://scenes/customer.tscn" id="6_5vw27"]
+[ext_resource type="PackedScene" uid="uid://bisocnccuvmb0" path="res://scenes/waypoint_marker.tscn" id="7_272bh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
+
+[sub_resource type="Sky" id="Sky_ig7tw"]
+sky_material = SubResource("ProceduralSkyMaterial_7dm0k")
+
+[sub_resource type="Environment" id="Environment_0xm2m"]
+background_mode = 2
+sky = SubResource("Sky_ig7tw")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0xm2m"]
+size = Vector3(0.5299988, 0.47607422, 1.7861977)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7dm0k"]
+size = Vector2(200, 200)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
+albedo_color = Color(0.14767182, 0.14767179, 0.14767179, 1)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0xm2m"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0xm2m"]
+size = Vector3(1.5, 5, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
+albedo_color = Color(0.60040003, 0.73944, 0.79, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lquwl"]
+render_priority = 0
+next_pass = SubResource("StandardMaterial3D_1bvp3")
+shader = ExtResource("4_1bvp3")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_threshold = 0.2
+
+[sub_resource type="BoxMesh" id="BoxMesh_lquwl"]
+size = Vector3(2, 10, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mycd"]
+albedo_color = Color(0.07, 0.06575333, 0.060200002, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_272bh"]
+render_priority = 0
+next_pass = SubResource("StandardMaterial3D_7mycd")
+shader = ExtResource("4_1bvp3")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_threshold = 0.2
+
+[node name="Root" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0xm2m")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.046112705, 0.99893624, 0, -0.99893624, 0.046112705, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("proxy")]
+transform = Transform3D(1, 0, 0, 0, 0.8813694, 0.47242773, 0, -0.47242773, 0.8813694, 0.030901551, 1.6132106, 1.1649492)
+script = ExtResource("1_h2yge")
+proxy = NodePath("../StaticBody3D/CameraProxy")
+
+[node name="StaticBody3D" type="VehicleBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07711488, 0)
+mass = 500.0
+gravity_scale = 2.0
+script = ExtResource("1_0xm2m")
+
+[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.97783077, 0.2093967, 0, -0.2093967, 0.97783077, 0.030901551, 0.49444595, -0.07934627)
+pixel_size = 0.005
+texture = ExtResource("1_ig7tw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.030776978, 0.39953572, -0.8827534)
+shape = SubResource("BoxShape3D_0xm2m")
+
+[node name="VehicleWheel3D" type="VehicleWheel3D" parent="StaticBody3D"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.7979604, 0.21856818, -0.039657667)
+use_as_traction = true
+wheel_roll_influence = 1.0
+suspension_stiffness = 50.0
+
+[node name="VehicleWheel3D2" type="VehicleWheel3D" parent="StaticBody3D"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.7979604, 0.21856818, -1.7432326)
+use_as_steering = true
+wheel_roll_influence = 1.0
+suspension_stiffness = 50.0
+
+[node name="VehicleWheel3D3" type="VehicleWheel3D" parent="StaticBody3D"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.9273284, 0.21856818, -0.039657667)
+use_as_traction = true
+wheel_roll_influence = 1.0
+suspension_stiffness = 50.0
+
+[node name="VehicleWheel3D4" type="VehicleWheel3D" parent="StaticBody3D"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.9273284, 0.21856818, -1.7432326)
+use_as_steering = true
+wheel_roll_influence = 1.0
+suspension_stiffness = 50.0
+
+[node name="CameraProxy" type="Node3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0171058, 1.4985794)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("PlaneMesh_7dm0k")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ig7tw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+visible = false
+shape = SubResource("WorldBoundaryShape3D_0xm2m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.996415, 0.08459959, 0, -0.08459959, 0.996415, 0, 0, 0, 1, -3.789443, 1.0973198, -7.1704597)
+mesh = SubResource("BoxMesh_0xm2m")
+surface_material_override/0 = SubResource("ShaderMaterial_lquwl")
+
+[node name="Sprite3D" type="Sprite3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0071504116, -0.060539097, 0.75432014)
+pixel_size = 0.02
+texture_filter = 0
+texture = ExtResource("5_7mycd")
+
+[node name="Sprite3D5" type="Sprite3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3655332, 0.14351416, 0.75432014)
+texture_filter = 0
+texture = ExtResource("5_7mycd")
+
+[node name="Sprite3D6" type="Sprite3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35709623, -0.3578313, 0.75432014)
+texture_filter = 0
+texture = ExtResource("5_7mycd")
+
+[node name="Sprite3D7" type="Sprite3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.075383514, 1.2698336, 0.75432014)
+texture_filter = 0
+texture = ExtResource("5_7mycd")
+
+[node name="Sprite3D8" type="Sprite3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37300634, 1.9526446, 0.75432014)
+texture_filter = 0
+texture = ExtResource("5_7mycd")
+
+[node name="Sprite3D2" type="Sprite3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35541403, 0.6940158, 0.75432014)
+texture_filter = 0
+texture = ExtResource("5_7mycd")
+
+[node name="Sprite3D3" type="Sprite3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.286712, 1.0870917, 0.75432014)
+pixel_size = 0.02
+texture_filter = 0
+texture = ExtResource("5_7mycd")
+
+[node name="Sprite3D4" type="Sprite3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2668723, 1.6414288, 0.75432014)
+texture_filter = 0
+texture = ExtResource("5_7mycd")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9952052, 0.097808704, 4.2753543e-09, 0, -4.371139e-08, 1, 0.097808704, -0.9952052, -4.3501803e-08, -0.46452188, -0.48327494, -11.952744)
+mesh = SubResource("BoxMesh_lquwl")
+surface_material_override/0 = SubResource("ShaderMaterial_272bh")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9952052, 0.097808704, 4.2753543e-09, 0, -4.371139e-08, 1, 0.097808704, -0.9952052, -4.3501803e-08, 0.5372345, -0.48327494, -21.901554)
+mesh = SubResource("BoxMesh_lquwl")
+surface_material_override/0 = SubResource("ShaderMaterial_272bh")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9343289, 0.35641184, 1.5579257e-08, 0, -4.371139e-08, 1, 0.35641184, -0.9343289, -4.084081e-08, -2.6521952, -0.4832747, -2.6856089)
+mesh = SubResource("BoxMesh_lquwl")
+surface_material_override/0 = SubResource("ShaderMaterial_272bh")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.99837583, -0.056971572, 0, 0.056971572, 0.99837583, 0, 0, 0, 1, 1.5400248, 1.0973198, -10.249814)
+mesh = SubResource("BoxMesh_0xm2m")
+surface_material_override/0 = SubResource("ShaderMaterial_lquwl")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.99837583, -0.056971572, 0, 0.05649064, 0.9899479, 0.12966093, -0.007386987, -0.12945034, 0.9915584, -3.3721704, 1.0973198, -13.826068)
+mesh = SubResource("BoxMesh_0xm2m")
+surface_material_override/0 = SubResource("ShaderMaterial_lquwl")
+
+[node name="Customer" parent="." instance=ExtResource("6_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39875877, 5.9604645e-08, -5.4720526)
+
+[node name="WaypointMarker" parent="." instance=ExtResource("7_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8568044, 0, -4.264592)
+
+[node name="Customer4" parent="." instance=ExtResource("6_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5014567, 0, -5.469057)
