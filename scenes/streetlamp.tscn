@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://w0wl86slel28"]
+[gd_scene load_steps=3 format=3 uid="uid://w0wl86slel28"]
 
 [ext_resource type="Texture2D" uid="uid://cjbvddvrcg6ac" path="res://assets/streetlamp.png" id="1_dhixf"]
 
-[node name="Streetlamp" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_dhixf"]
+size = Vector3(0.1, 1, 0.1)
+
+[node name="Streetlamp" type="RigidBody3D"]
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6377109, 0)
@@ -10,3 +13,7 @@ pixel_size = 0.02
 texture_filter = 2
 render_priority = 1
 texture = ExtResource("1_dhixf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_dhixf")
