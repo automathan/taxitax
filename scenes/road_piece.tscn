@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://cw676sux01gpn"]
+
+[ext_resource type="Shader" uid="uid://c0sj1qhrf8m6g" path="res://cel.gdshader" id="1_eav4p"]
+[ext_resource type="Texture2D" uid="uid://dxrfv0ijlitbf" path="res://assets/road_details.png" id="2_iemec"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lquwl"]
+size = Vector3(3, 10, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4c57u"]
+albedo_color = Color(0.07, 0.06575333, 0.060200002, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_272bh"]
+render_priority = 0
+next_pass = SubResource("StandardMaterial3D_4c57u")
+shader = ExtResource("1_eav4p")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_threshold = 0.2
+
+[node name="RoadPiece" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_lquwl")
+surface_material_override/0 = SubResource("ShaderMaterial_272bh")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.51)
+pixel_size = 0.0625
+texture_filter = 2
+texture = ExtResource("2_iemec")

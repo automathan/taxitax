@@ -1,10 +1,12 @@
-[gd_scene load_steps=23 format=3 uid="uid://dlhki6ih13wds"]
+[gd_scene load_steps=26 format=3 uid="uid://dlhki6ih13wds"]
 
 [ext_resource type="Script" uid="uid://ufcjwy02k8uo" path="res://camera.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://k3q0idr2tf81" path="res://scenes/car.tscn" id="2_272bh"]
 [ext_resource type="Shader" uid="uid://c0sj1qhrf8m6g" path="res://cel.gdshader" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://keua02epfw03" path="res://scenes/building.tscn" id="5_5vw27"]
 [ext_resource type="Texture2D" uid="uid://s1wgiuyjcpys" path="res://assets/window.png" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://cj25b8g2m2j31" path="res://scenes/customer.tscn" id="6_5vw27"]
+[ext_resource type="PackedScene" uid="uid://cw676sux01gpn" path="res://scenes/road_piece.tscn" id="6_kek77"]
 [ext_resource type="PackedScene" uid="uid://w0wl86slel28" path="res://scenes/streetlamp.tscn" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bisocnccuvmb0" path="res://scenes/waypoint_marker.tscn" id="7_272bh"]
 
@@ -38,17 +40,24 @@ shader = ExtResource("4_1bvp3")
 shader_parameter/outline_color = Color(0.1875, 0.23020834, 0.25, 1)
 shader_parameter/outline_threshold = 0.2
 
-[sub_resource type="BoxMesh" id="BoxMesh_lquwl"]
-size = Vector3(3, 10, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kek77"]
+albedo_color = Color(0.52140003, 0.66, 0.52833, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4c57u"]
-albedo_color = Color(0.07, 0.06575333, 0.060200002, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_272bh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4c57u"]
 render_priority = 0
-next_pass = SubResource("StandardMaterial3D_4c57u")
+next_pass = SubResource("StandardMaterial3D_kek77")
 shader = ExtResource("4_1bvp3")
-shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_color = Color(0.1875, 0.23020834, 0.25, 1)
+shader_parameter/outline_threshold = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efxa6"]
+albedo_color = Color(0.3555, 0.45, 0.360225, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dg77c"]
+render_priority = 0
+next_pass = SubResource("StandardMaterial3D_efxa6")
+shader = ExtResource("4_1bvp3")
+shader_parameter/outline_color = Color(0.1875, 0.23020834, 0.25, 1)
 shader_parameter/outline_threshold = 0.2
 
 [sub_resource type="BoxMesh" id="BoxMesh_efxa6"]
@@ -185,10 +194,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2668723, 1.6414288, 0.75432
 texture_filter = 0
 texture = ExtResource("5_7mycd")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+[node name="Building" parent="." instance=ExtResource("5_5vw27")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 2.2100115, 1.4282892, -6.635044)
+
+[node name="Building2" parent="." instance=ExtResource("5_5vw27")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 7.265977, 1.4282892, -4.5868626)
+surface_material_override/0 = SubResource("ShaderMaterial_4c57u")
+
+[node name="Building4" parent="." instance=ExtResource("5_5vw27")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 12.129528, 1.4282892, -4.5585756)
+surface_material_override/0 = SubResource("ShaderMaterial_4c57u")
+
+[node name="Building3" parent="." instance=ExtResource("5_5vw27")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 9.505432, 1.4282892, -4.5868626)
+surface_material_override/0 = SubResource("ShaderMaterial_dg77c")
+
+[node name="Building5" parent="." instance=ExtResource("5_5vw27")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 14.361892, 1.4282889, -4.187241)
+surface_material_override/0 = SubResource("ShaderMaterial_dg77c")
+
+[node name="RoadPiece" parent="." instance=ExtResource("6_kek77")]
 transform = Transform3D(0.9952052, 0.097808704, 4.2753543e-09, 0, -4.371139e-08, 1, 0.097808704, -0.9952052, -4.3501803e-08, -0.46452188, -0.48327494, -11.952744)
-mesh = SubResource("BoxMesh_lquwl")
-surface_material_override/0 = SubResource("ShaderMaterial_272bh")
+
+[node name="RoadPiece2" parent="." instance=ExtResource("6_kek77")]
+transform = Transform3D(0.992027, -0.12602583, -5.5087646e-09, 0, -4.371139e-08, 1, -0.12602583, -0.992027, -4.3362874e-08, -0.3604393, -0.48327494, -2.267656)
+
+[node name="RoadPiece3" parent="." instance=ExtResource("6_kek77")]
+transform = Transform3D(0.992027, -0.12602583, -5.5087646e-09, 0, -4.371139e-08, 1, -0.12602583, -0.992027, -4.3362874e-08, 0.8944063, -0.4832745, 7.6100073)
+
+[node name="RoadPiece4" parent="." instance=ExtResource("6_kek77")]
+transform = Transform3D(-0.12602587, -0.992027, -5.5087632e-09, -4.371139e-08, 0, 1, -0.992027, 0.12602587, -4.336287e-08, 6.187583, -0.48327497, -0.8093209)
 
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.9952052, 0.097808704, 4.2753543e-09, 0, -4.371139e-08, 1, 0.097808704, -0.9952052, -4.3501803e-08, -2.3337958, -0.43078268, -11.952744)
@@ -199,21 +234,6 @@ surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
 transform = Transform3D(0.9952052, 0.097808704, 4.2753543e-09, 0, -4.371139e-08, 1, 0.097808704, -0.9952052, -4.3501803e-08, 1.4871047, -0.43078268, -11.952744)
 mesh = SubResource("BoxMesh_efxa6")
 surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
-
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.9952052, 0.097808704, 4.2753543e-09, 0, -4.371139e-08, 1, 0.097808704, -0.9952052, -4.3501803e-08, 0.51750225, -0.48327494, -21.901554)
-mesh = SubResource("BoxMesh_lquwl")
-surface_material_override/0 = SubResource("ShaderMaterial_272bh")
-
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.09780866, -0.9952052, -4.3501803e-08, 0, -4.371139e-08, 1, -0.9952052, -0.09780866, -4.275349e-09, -5.331942, -0.48327494, -21.901554)
-mesh = SubResource("BoxMesh_lquwl")
-surface_material_override/0 = SubResource("ShaderMaterial_272bh")
-
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.9343289, 0.35641184, 1.5579257e-08, 0, -4.371139e-08, 1, 0.35641184, -0.9343289, -4.084081e-08, -2.647603, -0.4832747, -2.690586)
-mesh = SubResource("BoxMesh_lquwl")
-surface_material_override/0 = SubResource("ShaderMaterial_272bh")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.99837583, -0.056971572, 0, 0.056971572, 0.99837583, 0, 0, 0, 1, 2.2502985, 1.0973198, -10.249814)

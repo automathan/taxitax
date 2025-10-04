@@ -58,6 +58,7 @@ suspension_stiffness = 60.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0171058, 1.5966085)
 
 [node name="EnterArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.10295993)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EnterArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45166016, 0)

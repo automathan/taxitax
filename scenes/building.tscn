@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://keua02epfw03"]
+
+[ext_resource type="Shader" uid="uid://c0sj1qhrf8m6g" path="res://cel.gdshader" id="1_uvy8r"]
+[ext_resource type="Texture2D" uid="uid://s1wgiuyjcpys" path="res://assets/window.png" id="2_ejq8p"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0xm2m"]
+size = Vector3(1.5, 5, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
+albedo_color = Color(0.60040003, 0.73944, 0.79, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lquwl"]
+render_priority = 0
+next_pass = SubResource("StandardMaterial3D_1bvp3")
+shader = ExtResource("1_uvy8r")
+shader_parameter/outline_color = Color(0.1875, 0.23020834, 0.25, 1)
+shader_parameter/outline_threshold = 0.2
+
+[node name="Building" type="MeshInstance3D"]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_0xm2m")
+surface_material_override/0 = SubResource("ShaderMaterial_lquwl")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0071504116, -0.060539097, 0.75432014)
+pixel_size = 0.02
+texture_filter = 0
+texture = ExtResource("2_ejq8p")
+
+[node name="Sprite3D5" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3655332, 0.14351416, 0.75432014)
+texture_filter = 0
+texture = ExtResource("2_ejq8p")
+
+[node name="Sprite3D6" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35709623, -0.3578313, 0.75432014)
+texture_filter = 0
+texture = ExtResource("2_ejq8p")
+
+[node name="Sprite3D7" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.075383514, 1.2698336, 0.75432014)
+texture_filter = 0
+texture = ExtResource("2_ejq8p")
+
+[node name="Sprite3D8" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37300634, 1.9526446, 0.75432014)
+texture_filter = 0
+texture = ExtResource("2_ejq8p")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35541403, 0.6940158, 0.75432014)
+texture_filter = 0
+texture = ExtResource("2_ejq8p")
+
+[node name="Sprite3D3" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.286712, 1.0870917, 0.75432014)
+pixel_size = 0.02
+texture_filter = 0
+texture = ExtResource("2_ejq8p")
+
+[node name="Sprite3D4" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2668723, 1.6414288, 0.75432014)
+texture_filter = 0
+texture = ExtResource("2_ejq8p")
