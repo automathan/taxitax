@@ -1,3 +1,4 @@
+class_name Car
 extends VehicleBody3D
 
 var max_steer = 1

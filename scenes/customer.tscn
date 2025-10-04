@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj25b8g2m2j31"]
+[gd_scene load_steps=6 format=3 uid="uid://cj25b8g2m2j31"]
 
 [ext_resource type="Script" uid="uid://bidrsty4f5le2" path="res://scenes/customer.gd" id="1_8qg4y"]
 [ext_resource type="Texture2D" uid="uid://dpnnqp601ilf1" path="res://assets/dude.png" id="2_rjbu2"]
@@ -7,6 +7,10 @@
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_8qg4y"]
 height = 1.0007324
 radius = 0.625
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rjbu2"]
+height = 0.664917
+radius = 0.1875
 
 [node name="Customer" type="Node3D"]
 script = ExtResource("1_8qg4y")
@@ -23,6 +27,7 @@ texture = ExtResource("2_rjbu2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9786525, 0)
 billboard = 1
 texture_filter = 2
+render_priority = 1
 modulate = Color(1, 0.7935, 0.41000003, 1)
 outline_modulate = Color(0, 0, 0, 0.3764706)
 text = "Taxi!"
@@ -35,3 +40,11 @@ outline_size = 7
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4996338, 0)
 shape = SubResource("CylinderShape3D_8qg4y")
+debug_color = Color(1, 0.92800003, 0.27999997, 0.26666668)
+
+[node name="DeathArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33172607, 0)
+shape = SubResource("CylinderShape3D_rjbu2")
+debug_color = Color(0.9787052, 0, 0.16637918, 0.41960785)

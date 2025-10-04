@@ -233,6 +233,21 @@ surface_material_override/0 = SubResource("ShaderMaterial_lquwl")
 [node name="Customer" parent="." instance=ExtResource("6_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39875877, 5.9604645e-08, -5.4720526)
 
+[node name="Customer2" parent="." instance=ExtResource("6_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7173721, 2.9802322e-07, -3.4082875)
+
+[node name="Customer3" parent="." instance=ExtResource("6_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2675905, 2.9802322e-07, -2.7300928)
+
+[node name="Customer5" parent="." instance=ExtResource("6_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5216894, 2.9802322e-07, -4.23055)
+
+[node name="Customer6" parent="." instance=ExtResource("6_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9728923, 2.9802322e-07, -5.858467)
+
+[node name="Customer7" parent="." instance=ExtResource("6_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9917417, 2.9802322e-07, -7.74434)
+
 [node name="WaypointMarker" parent="." instance=ExtResource("7_272bh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7457826, 0, -8.915827)
 
@@ -243,10 +258,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39412743, 0, -6.144681)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8064404, 0.050479293, -7.574259)
 
 [node name="Streetlamp3" parent="." instance=ExtResource("7_5vw27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8347253, 0.050479293, -9.063986)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8064404, 0.050479293, -9.063986)
 
 [node name="Streetlamp4" parent="." instance=ExtResource("7_5vw27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1005604, 0.050479293, -10.889147)
+transform = Transform3D(0.99732596, -0.07308154, 0, 0.07308154, 0.99732596, 0, 0, 0, 1, 1.0131562, 0.050479293, -10.889147)
 
 [node name="Customer4" parent="." instance=ExtResource("6_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5014567, 0, -5.469057)
