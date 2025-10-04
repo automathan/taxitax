@@ -2,6 +2,7 @@ extends Node3D
 
 @onready var sprite = $Sprite3D
 @onready var area = $Area3D
+@onready var sfx = $AudioStreamPlayer
 
 func _ready() -> void:
 	var tween = get_tree().create_tween()
@@ -19,6 +20,7 @@ func _area_entered(other: Area3D):
 		car_arrived()
 
 func car_arrived():
+	sfx.play()
 	var tween = get_tree().create_tween()
 	tween.chain().tween_property(sprite, 'modulate', Color.TRANSPARENT, 2)
 	tween.chain().tween_callback(queue_free)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cj25b8g2m2j31"]
+[gd_scene load_steps=9 format=3 uid="uid://cj25b8g2m2j31"]
 
 [ext_resource type="Script" uid="uid://bidrsty4f5le2" path="res://scenes/customer.gd" id="1_8qg4y"]
 [ext_resource type="Texture2D" uid="uid://dpnnqp601ilf1" path="res://assets/dude.png" id="2_rjbu2"]
 [ext_resource type="Texture2D" uid="uid://cxhjnoxu576lc" path="res://assets/dude2.png" id="3_846g6"]
 [ext_resource type="FontFile" uid="uid://dm08ctlxvsg5a" path="res://assets/Short_Story.ttf" id="3_qqxhk"]
 [ext_resource type="Texture2D" uid="uid://outuxwasvrt1" path="res://assets/woman1.png" id="4_qj8gj"]
+[ext_resource type="AudioStream" uid="uid://cg58agmkgnu6u" path="res://assets/audio/pluck.mp3" id="6_846g6"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_8qg4y"]
 height = 1.0007324
@@ -51,3 +52,8 @@ debug_color = Color(1, 0.92800003, 0.27999997, 0.26666668)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33172607, 0)
 shape = SubResource("CylinderShape3D_rjbu2")
 debug_color = Color(0.9787052, 0, 0.16637918, 0.41960785)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_846g6")
+volume_db = -10.0
+pitch_scale = 0.7

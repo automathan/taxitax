@@ -4,12 +4,14 @@ extends Node3D
 @onready var label = $Label3D
 @onready var death_area = $DeathArea
 @onready var sprite = $Sprite3D
+@onready var sfx = $AudioStreamPlayer
 
 @export var sprite_variants: Array[Texture2D]
 
 var pickup_template = 'Picking Up\n[%s%s%s%s%s]'
-var entering: bool
+var entering: bool = false
 var enter_time: float = 0
+var fading: bool = false
 
 func _ready() -> void:
 	death_area.area_entered.connect(_death_area_entered)
@@ -27,11 +29,21 @@ func pick_up():
 	entering = true
 
 func _physics_process(delta: float) -> void:
-	if entering:
+	if entering and not fading:
 		enter_time += delta * 2
 		label.text = pickup_template % generate_marker_array()
+
 		if enter_time > 6:
-			queue_free()
+			label.text = ''
+			sfx.play()
+			fade_out()
+			entering = false
+
+func fade_out():
+	fading = true
+	var tween = get_tree().create_tween()
+	tween.chain().tween_property(sprite, 'modulate', Color.TRANSPARENT, 1)
+	tween.chain().tween_callback(queue_free)
 
 func generate_marker_array() -> Array:
 	var markers = []
