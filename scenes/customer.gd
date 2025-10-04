@@ -3,6 +3,9 @@ extends Node3D
 
 @onready var label = $Label3D
 @onready var death_area = $DeathArea
+@onready var sprite = $Sprite3D
+
+@export var sprite_variants: Array[Texture2D]
 
 var pickup_template = 'Picking Up\n[%s%s%s%s%s]'
 var entering: bool
@@ -10,6 +13,8 @@ var enter_time: float = 0
 
 func _ready() -> void:
 	death_area.area_entered.connect(_death_area_entered)
+	sprite.texture = sprite_variants[randi() % len(sprite_variants)]
+	sprite.flip_h = (randi() % 2) == 0
 
 func _death_area_entered(other: Area3D):
 	var parent = other.get_parent()

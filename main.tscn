@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dlhki6ih13wds"]
+[gd_scene load_steps=27 format=3 uid="uid://dlhki6ih13wds"]
 
 [ext_resource type="Script" uid="uid://ufcjwy02k8uo" path="res://camera.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://k3q0idr2tf81" path="res://scenes/car.tscn" id="2_272bh"]
@@ -73,6 +73,9 @@ shader = ExtResource("4_1bvp3")
 shader_parameter/outline_color = Color(0.14767182, 0.14767179, 0.14767179, 1)
 shader_parameter/outline_threshold = 0.2
 
+[sub_resource type="BoxMesh" id="BoxMesh_kek77"]
+size = Vector3(1, 6, 1)
+
 [node name="Root" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -81,13 +84,13 @@ environment = SubResource("Environment_0xm2m")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.046112705, 0.99893624, 0, -0.99893624, 0.046112705, 0, 0, 0)
 
-[node name="StaticBody3D" parent="." instance=ExtResource("2_272bh")]
+[node name="Car" parent="." instance=ExtResource("2_272bh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07711488, 0)
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("car")]
 transform = Transform3D(1, 0, 0, 0, 0.8813694, 0.47242773, 0, -0.47242773, 0.8813694, 0.030901551, 1.6132106, 1.1649492)
 script = ExtResource("1_h2yge")
-car = NodePath("../StaticBody3D")
+car = NodePath("../Car")
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
@@ -214,7 +217,7 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 14.361892, 1.4282889,
 surface_material_override/0 = SubResource("ShaderMaterial_dg77c")
 
 [node name="RoadPiece" parent="." instance=ExtResource("6_kek77")]
-transform = Transform3D(0.9952052, 0.097808704, 4.2753543e-09, 0, -4.371139e-08, 1, 0.097808704, -0.9952052, -4.3501803e-08, -0.46452188, -0.48327494, -11.952744)
+transform = Transform3D(0.9952052, 0.097808704, 4.2753543e-09, 0, -4.371139e-08, 1, 0.097808704, -0.9952052, -4.3501803e-08, -0.47420105, -0.48327494, -11.854258)
 
 [node name="RoadPiece2" parent="." instance=ExtResource("6_kek77")]
 transform = Transform3D(0.992027, -0.12602583, -5.5087646e-09, 0, -4.371139e-08, 1, -0.12602583, -0.992027, -4.3362874e-08, -0.3604393, -0.48327494, -2.267656)
@@ -223,7 +226,7 @@ transform = Transform3D(0.992027, -0.12602583, -5.5087646e-09, 0, -4.371139e-08,
 transform = Transform3D(0.992027, -0.12602583, -5.5087646e-09, 0, -4.371139e-08, 1, -0.12602583, -0.992027, -4.3362874e-08, 0.8944063, -0.4832745, 7.6100073)
 
 [node name="RoadPiece4" parent="." instance=ExtResource("6_kek77")]
-transform = Transform3D(-0.12602587, -0.992027, -5.5087632e-09, -4.371139e-08, 0, 1, -0.992027, 0.12602587, -4.336287e-08, 6.187583, -0.48327497, -0.8093209)
+transform = Transform3D(-0.12602587, -0.992027, -5.5087632e-09, -4.371139e-08, 0, 1, -0.992027, 0.12602587, -4.336287e-08, 6.238748, -0.48327494, -0.4065701)
 
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.9952052, 0.097808704, 4.2753543e-09, 0, -4.371139e-08, 1, 0.097808704, -0.9952052, -4.3501803e-08, -2.3337958, -0.43078268, -11.952744)
@@ -233,6 +236,11 @@ surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
 [node name="MeshInstance3D11" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.9952052, 0.097808704, 4.2753543e-09, 0, -4.371139e-08, 1, 0.097808704, -0.9952052, -4.3501803e-08, 1.4871047, -0.43078268, -11.952744)
 mesh = SubResource("BoxMesh_efxa6")
+surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9956535, -0.093135215, 4.2753534e-09, -8.308321e-09, -4.2914536e-08, 1, -0.093135215, -0.9956535, -4.3501803e-08, 1.2857721, -0.43078235, -4.1124597)
+mesh = SubResource("BoxMesh_kek77")
 surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
