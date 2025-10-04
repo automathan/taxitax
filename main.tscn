@@ -1,14 +1,13 @@
-[gd_scene load_steps=23 format=3 uid="uid://dlhki6ih13wds"]
+[gd_scene load_steps=25 format=3 uid="uid://dlhki6ih13wds"]
 
 [ext_resource type="Script" uid="uid://bwtqtyou4avfi" path="res://car.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://ufcjwy02k8uo" path="res://camera.gd" id="1_h2yge"]
-[ext_resource type="Texture2D" uid="uid://bwyyyscnoesmu" path="res://icon.svg" id="1_ig7tw"]
 [ext_resource type="Shader" uid="uid://c0sj1qhrf8m6g" path="res://cel.gdshader" id="4_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://bkmvx6i5ncsy3" path="res://assets/car.png" id="4_5vw27"]
 [ext_resource type="Texture2D" uid="uid://s1wgiuyjcpys" path="res://assets/window.png" id="5_7mycd"]
 [ext_resource type="SpriteFrames" uid="uid://cdbjj24erxbmb" path="res://assets/car.tres" id="5_kek77"]
 [ext_resource type="PackedScene" uid="uid://cj25b8g2m2j31" path="res://scenes/customer.tscn" id="6_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bisocnccuvmb0" path="res://scenes/waypoint_marker.tscn" id="7_272bh"]
+[ext_resource type="Texture2D" uid="uid://cjbvddvrcg6ac" path="res://assets/streetlamp.png" id="10_4c57u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 
@@ -20,7 +19,7 @@ background_mode = 2
 sky = SubResource("Sky_ig7tw")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0xm2m"]
-size = Vector3(0.5299988, 0.47607422, 1.7861977)
+size = Vector3(0.5299988, 0.47607422, 1.3437662)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7dm0k"]
 size = Vector2(200, 200)
@@ -40,20 +39,33 @@ albedo_color = Color(0.60040003, 0.73944, 0.79, 1)
 render_priority = 0
 next_pass = SubResource("StandardMaterial3D_1bvp3")
 shader = ExtResource("4_1bvp3")
-shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_color = Color(0.1875, 0.23020834, 0.25, 1)
 shader_parameter/outline_threshold = 0.2
 
 [sub_resource type="BoxMesh" id="BoxMesh_lquwl"]
 size = Vector3(3, 10, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mycd"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4c57u"]
 albedo_color = Color(0.07, 0.06575333, 0.060200002, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_272bh"]
 render_priority = 0
-next_pass = SubResource("StandardMaterial3D_7mycd")
+next_pass = SubResource("StandardMaterial3D_4c57u")
 shader = ExtResource("4_1bvp3")
 shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_threshold = 0.2
+
+[sub_resource type="BoxMesh" id="BoxMesh_efxa6"]
+size = Vector3(1, 10, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dg77c"]
+albedo_color = Color(0.21, 0.19725999, 0.1806, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ycdy4"]
+render_priority = 0
+next_pass = SubResource("StandardMaterial3D_dg77c")
+shader = ExtResource("4_1bvp3")
+shader_parameter/outline_color = Color(0.14767182, 0.14767179, 0.14767179, 1)
 shader_parameter/outline_threshold = 0.2
 
 [node name="Root" type="Node3D"]
@@ -75,52 +87,44 @@ mass = 500.0
 gravity_scale = 2.0
 script = ExtResource("1_0xm2m")
 
-[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.97783077, 0.2093967, 0, -0.2093967, 0.97783077, 0.030901551, 0.49444595, -0.07934627)
-visible = false
-pixel_size = 0.005
-texture = ExtResource("1_ig7tw")
-
-[node name="Sprite3D2" type="Sprite3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.8649938, 0.5017825, 0, -0.5017825, 0.8649938, 0.030901551, 0.49444595, -0.07934627)
-visible = false
-pixel_size = 0.02
-texture_filter = 2
-texture = ExtResource("4_5vw27")
-
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 0.76733303, 0.64124876, 0, -0.64124876, 0.76733303, 0, 0.42054272, 0)
-pixel_size = 0.02
+pixel_size = 0.018
 texture_filter = 2
+render_priority = 1
 sprite_frames = ExtResource("5_kek77")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.030776978, 0.39953572, -0.8827534)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.030776978, 0.39953572, -0.66153765)
 shape = SubResource("BoxShape3D_0xm2m")
 
 [node name="VehicleWheel3D" type="VehicleWheel3D" parent="StaticBody3D"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.8, 0.2, 0)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.5, 0.2, 0)
 use_as_traction = true
 wheel_roll_influence = 1.0
-suspension_stiffness = 50.0
+suspension_travel = 0.3
+suspension_stiffness = 60.0
 
 [node name="VehicleWheel3D2" type="VehicleWheel3D" parent="StaticBody3D"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.8, 0.2, -1.8)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.5, 0.2, -1.311)
 use_as_steering = true
 wheel_roll_influence = 1.0
-suspension_stiffness = 50.0
+suspension_travel = 0.3
+suspension_stiffness = 60.0
 
 [node name="VehicleWheel3D3" type="VehicleWheel3D" parent="StaticBody3D"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.8, 0.2, 0)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.5, 0.2, 0)
 use_as_traction = true
 wheel_roll_influence = 1.0
-suspension_stiffness = 50.0
+suspension_travel = 0.3
+suspension_stiffness = 60.0
 
 [node name="VehicleWheel3D4" type="VehicleWheel3D" parent="StaticBody3D"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.8, 0.2, -1.8)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.5, 0.2, -1.311)
 use_as_steering = true
 wheel_roll_influence = 1.0
-suspension_stiffness = 50.0
+suspension_travel = 0.3
+suspension_stiffness = 60.0
 
 [node name="CameraProxy" type="Node3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0171058, 1.4985794)
@@ -235,6 +239,16 @@ transform = Transform3D(0.9952052, 0.097808704, 4.2753543e-09, 0, -4.371139e-08,
 mesh = SubResource("BoxMesh_lquwl")
 surface_material_override/0 = SubResource("ShaderMaterial_272bh")
 
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9952052, 0.097808704, 4.2753543e-09, 0, -4.371139e-08, 1, 0.097808704, -0.9952052, -4.3501803e-08, -2.3337958, -0.43078268, -11.952744)
+mesh = SubResource("BoxMesh_efxa6")
+surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9952052, 0.097808704, 4.2753543e-09, 0, -4.371139e-08, 1, 0.097808704, -0.9952052, -4.3501803e-08, 1.4871047, -0.43078268, -11.952744)
+mesh = SubResource("BoxMesh_efxa6")
+surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
+
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.9952052, 0.097808704, 4.2753543e-09, 0, -4.371139e-08, 1, 0.097808704, -0.9952052, -4.3501803e-08, 0.51750225, -0.48327494, -21.901554)
 mesh = SubResource("BoxMesh_lquwl")
@@ -251,7 +265,7 @@ mesh = SubResource("BoxMesh_lquwl")
 surface_material_override/0 = SubResource("ShaderMaterial_272bh")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.99837583, -0.056971572, 0, 0.056971572, 0.99837583, 0, 0, 0, 1, 1.5400248, 1.0973198, -10.249814)
+transform = Transform3D(0.99837583, -0.056971572, 0, 0.056971572, 0.99837583, 0, 0, 0, 1, 2.2502985, 1.0973198, -10.249814)
 mesh = SubResource("BoxMesh_0xm2m")
 surface_material_override/0 = SubResource("ShaderMaterial_lquwl")
 
@@ -270,6 +284,42 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39875877, 5.9604645e-08, -5
 
 [node name="WaypointMarker" parent="." instance=ExtResource("7_272bh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7457826, 0, -8.915827)
+
+[node name="Streetlamp" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39412743, 0, -6.144681)
+
+[node name="Sprite3D" type="Sprite3D" parent="Streetlamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6377109, 0)
+pixel_size = 0.02
+texture_filter = 2
+texture = ExtResource("10_4c57u")
+
+[node name="Streetlamp2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.80599993, 0.041141152, -7.607314)
+
+[node name="Sprite3D" type="Sprite3D" parent="Streetlamp2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6377109, 0)
+pixel_size = 0.02
+texture_filter = 2
+texture = ExtResource("10_4c57u")
+
+[node name="Streetlamp3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9051613, 0.041141152, -9.144779)
+
+[node name="Sprite3D" type="Sprite3D" parent="Streetlamp3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6377109, 0)
+pixel_size = 0.02
+texture_filter = 2
+texture = ExtResource("10_4c57u")
+
+[node name="Streetlamp4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1139593, 0.041141033, -10.76439)
+
+[node name="Sprite3D" type="Sprite3D" parent="Streetlamp4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6377109, 0)
+pixel_size = 0.02
+texture_filter = 2
+texture = ExtResource("10_4c57u")
 
 [node name="Customer4" parent="." instance=ExtResource("6_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5014567, 0, -5.469057)

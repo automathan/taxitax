@@ -12,4 +12,5 @@ modulate = Color(1, 0.81666666, 0.45, 1)
 pixel_size = 0.02
 billboard = 2
 texture_filter = 2
+render_priority = 1
 texture = ExtResource("1_ov4de")

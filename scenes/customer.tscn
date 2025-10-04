@@ -16,6 +16,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32939002, 0)
 pixel_size = 0.02
 billboard = 2
 texture_filter = 2
+render_priority = 1
 texture = ExtResource("2_rjbu2")
 
 [node name="Label3D" type="Label3D" parent="."]
