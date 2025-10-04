@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dlhki6ih13wds"]
+[gd_scene load_steps=41 format=3 uid="uid://dlhki6ih13wds"]
 
 [ext_resource type="Script" uid="uid://ufcjwy02k8uo" path="res://camera.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://k3q0idr2tf81" path="res://scenes/car.tscn" id="2_272bh"]
@@ -13,12 +13,14 @@
 [ext_resource type="Script" uid="uid://c2en0h4p1rk7n" path="res://radio_label.gd" id="10_cegan"]
 [ext_resource type="Script" uid="uid://bibtfpw5swqim" path="res://cash_ui.gd" id="11_dg77c"]
 [ext_resource type="Texture2D" uid="uid://b1warrqnsb165" path="res://assets/textures/tree.png" id="11_efxa6"]
+[ext_resource type="Script" uid="uid://ctlvbm4lcihsm" path="res://passenger_dialogue.gd" id="12_getpj"]
 [ext_resource type="Script" uid="uid://da1wdcfxm0q27" path="res://radio.gd" id="13_ycdy4"]
 [ext_resource type="AudioStream" uid="uid://badilklb5ega6" path="res://assets/audio/radio/RADIO_FLUSS.ogg" id="14_074og"]
 [ext_resource type="AudioStream" uid="uid://bj428qjs84dfl" path="res://assets/audio/radio/RADIO_goblin.ogg" id="15_cegan"]
 [ext_resource type="AudioStream" uid="uid://dcciqrecdl5a1" path="res://assets/audio/radio/RADIO_GoingRogue.ogg" id="16_82xsv"]
 [ext_resource type="AudioStream" uid="uid://0q5sr26vp0no" path="res://assets/audio/radio/RADIO_Sang1.ogg" id="17_getpj"]
 [ext_resource type="AudioStream" uid="uid://btl1img4ipgq5" path="res://assets/audio/radio/RADIO_Taxi.ogg" id="18_ryguw"]
+[ext_resource type="Script" uid="uid://bernp66rnq5cx" path="res://waypoints.gd" id="19_82xsv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_top_color = Color(0.2, 0.28333336, 0.4, 1)
@@ -401,9 +403,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9728923, 2.9802322e-07, -5
 [node name="Customer7" parent="." instance=ExtResource("6_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9917417, 2.9802322e-07, -7.74434)
 
-[node name="WaypointMarker" parent="." instance=ExtResource("7_272bh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7457826, 0, -8.915827)
-
 [node name="Streetlamp2" parent="." instance=ExtResource("7_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8064404, 0.050479293, -7.574259)
 
@@ -531,6 +530,7 @@ patch_margin_left = 4
 patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
+script = ExtResource("12_getpj")
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Footer/NinePatchRect"]
 layout_mode = 0
@@ -616,3 +616,31 @@ channel_names = Array[String](["FLOW 24/7", "goblin_nation.fm", "Suntown Down", 
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Radio"]
 volume_db = -8.0
+
+[node name="Waypoints" type="Node3D" parent="."]
+script = ExtResource("19_82xsv")
+metadata/_edit_lock_ = true
+
+[node name="WaypointMarker" parent="Waypoints" instance=ExtResource("7_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.607337, 0, -25.240421)
+display_name = "Gobuth and 1st"
+
+[node name="WaypointMarker4" parent="Waypoints" instance=ExtResource("7_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.275778, 0, -20.900038)
+display_name = "Snabelvik and 1st"
+
+[node name="WaypointMarker5" parent="Waypoints" instance=ExtResource("7_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.970631, 0, -2.4361215)
+display_name = "Snabelvik and 2nd"
+
+[node name="WaypointMarker6" parent="Waypoints" instance=ExtResource("7_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.614058, 0, 13.722924)
+display_name = "Snabelvik and 3rd"
+
+[node name="WaypointMarker2" parent="Waypoints" instance=ExtResource("7_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7273539, 0, -0.8050549)
+display_name = "Gobuth and 2nd"
+
+[node name="WaypointMarker3" parent="Waypoints" instance=ExtResource("7_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.84584755, 2.3841858e-07, 12.705755)
+display_name = "Gobuth and 3rd"

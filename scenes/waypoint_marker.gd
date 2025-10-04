@@ -3,6 +3,12 @@ extends Node3D
 @onready var sprite = $Sprite3D
 @onready var area = $Area3D
 @onready var sfx = $AudioStreamPlayer
+@onready var car = $"../../Car"
+@onready var dialogue = $"../../CanvasLayer/Footer/NinePatchRect"
+
+@export var display_name: String
+
+var active: bool = false
 
 func _ready() -> void:
 	var tween = get_tree().create_tween()
@@ -12,15 +18,27 @@ func _ready() -> void:
 	tween.set_loops(0)
 
 	area.area_entered.connect(_area_entered)
+	sprite.modulate = Color.TRANSPARENT
 
 func _area_entered(other: Area3D):
+	if not active:
+		return
+
 	var parent = other.get_parent()
 
 	if parent is Car:
 		car_arrived()
 
+func activate():
+	active = true
+	sprite.modulate = Color.WHITE
+
 func car_arrived():
+	car.busy = false
+	Economy.add_cash(50)
 	sfx.play()
+
 	var tween = get_tree().create_tween()
 	tween.chain().tween_property(sprite, 'modulate', Color.TRANSPARENT, 2)
-	tween.chain().tween_callback(queue_free)
+	active = false
+	dialogue.fade_out()

@@ -9,6 +9,8 @@ var engine_power = 600
 @onready var proxy_point = $CameraProxy
 @onready var engine_sfx = $AudioStreamPlayer3D
 
+var busy: bool = false
+
 func _ready() -> void:
 	sprite.play()
 	area.area_entered.connect(_area_entered)
