@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bisocnccuvmb0"]
 
 [ext_resource type="Script" uid="uid://dxbj16tpyuga5" path="res://scenes/waypoint_marker.gd" id="1_otagc"]
-[ext_resource type="Texture2D" uid="uid://c34votovscthl" path="res://assets/arrow.png" id="1_ov4de"]
+[ext_resource type="Texture2D" uid="uid://c34votovscthl" path="res://assets/textures/arrow.png" id="1_ov4de"]
 [ext_resource type="AudioStream" uid="uid://yru4ko1skup" path="res://assets/audio/bonus.mp3" id="3_g0nsx"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_otagc"]

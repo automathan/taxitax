@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://keua02epfw03"]
 
 [ext_resource type="Shader" uid="uid://c0sj1qhrf8m6g" path="res://cel.gdshader" id="1_uvy8r"]
-[ext_resource type="Texture2D" uid="uid://s1wgiuyjcpys" path="res://assets/window.png" id="2_ejq8p"]
+[ext_resource type="Texture2D" uid="uid://s1wgiuyjcpys" path="res://assets/textures/window.png" id="2_ejq8p"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0xm2m"]
 size = Vector3(1.5, 5, 1.5)

@@ -1,19 +1,28 @@
-[gd_scene load_steps=32 format=3 uid="uid://dlhki6ih13wds"]
+[gd_scene load_steps=39 format=3 uid="uid://dlhki6ih13wds"]
 
 [ext_resource type="Script" uid="uid://ufcjwy02k8uo" path="res://camera.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://k3q0idr2tf81" path="res://scenes/car.tscn" id="2_272bh"]
 [ext_resource type="Shader" uid="uid://c0sj1qhrf8m6g" path="res://cel.gdshader" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://keua02epfw03" path="res://scenes/building.tscn" id="5_5vw27"]
-[ext_resource type="Texture2D" uid="uid://s1wgiuyjcpys" path="res://assets/window.png" id="5_7mycd"]
+[ext_resource type="Texture2D" uid="uid://s1wgiuyjcpys" path="res://assets/textures/window.png" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://cj25b8g2m2j31" path="res://scenes/customer.tscn" id="6_5vw27"]
 [ext_resource type="PackedScene" uid="uid://cw676sux01gpn" path="res://scenes/road_piece.tscn" id="6_kek77"]
 [ext_resource type="PackedScene" uid="uid://w0wl86slel28" path="res://scenes/streetlamp.tscn" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bisocnccuvmb0" path="res://scenes/waypoint_marker.tscn" id="7_272bh"]
-[ext_resource type="Texture2D" uid="uid://drxt0un05kr48" path="res://assets/ninep.png" id="10_4c57u"]
+[ext_resource type="Texture2D" uid="uid://drxt0un05kr48" path="res://assets/textures/ninep.png" id="10_4c57u"]
+[ext_resource type="Script" uid="uid://c2en0h4p1rk7n" path="res://radio_label.gd" id="10_cegan"]
 [ext_resource type="Script" uid="uid://bibtfpw5swqim" path="res://cash_ui.gd" id="11_dg77c"]
-[ext_resource type="Texture2D" uid="uid://b1warrqnsb165" path="res://assets/tree.png" id="11_efxa6"]
+[ext_resource type="Texture2D" uid="uid://b1warrqnsb165" path="res://assets/textures/tree.png" id="11_efxa6"]
+[ext_resource type="Script" uid="uid://da1wdcfxm0q27" path="res://radio.gd" id="13_ycdy4"]
+[ext_resource type="AudioStream" uid="uid://badilklb5ega6" path="res://assets/audio/radio/RADIO_FLUSS.ogg" id="14_074og"]
+[ext_resource type="AudioStream" uid="uid://bj428qjs84dfl" path="res://assets/audio/radio/RADIO_goblin.ogg" id="15_cegan"]
+[ext_resource type="AudioStream" uid="uid://dcciqrecdl5a1" path="res://assets/audio/radio/RADIO_GoingRogue.ogg" id="16_82xsv"]
+[ext_resource type="AudioStream" uid="uid://0q5sr26vp0no" path="res://assets/audio/radio/RADIO_Sang1.ogg" id="17_getpj"]
+[ext_resource type="AudioStream" uid="uid://btl1img4ipgq5" path="res://assets/audio/radio/RADIO_Taxi.ogg" id="18_ryguw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
+sky_top_color = Color(0.2, 0.28333336, 0.4, 1)
+sky_horizon_color = Color(0.83, 0.72044, 0.5312, 1)
 ground_bottom_color = Color(0.22379607, 0.32115266, 0.44152558, 1)
 ground_horizon_color = Color(0.15190001, 0.17298, 0.31, 1)
 
@@ -428,12 +437,34 @@ grow_horizontal = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Header"]
 layout_mode = 0
 offset_left = -189.0
-offset_top = 58.0
+offset_top = 70.0
 offset_right = 189.0
-offset_bottom = 98.0
+offset_bottom = 110.0
 theme_override_font_sizes/normal_font_size = 14
 text = "Driving on Gobuth Street"
 horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Header"]
+layout_mode = 0
+offset_left = -189.0
+offset_top = 47.0
+offset_right = 189.0
+offset_bottom = 87.0
+theme_override_font_sizes/normal_font_size = 14
+text = "Time to tax: 1m 13s "
+horizontal_alignment = 1
+
+[node name="RadioLabel" type="RichTextLabel" parent="CanvasLayer/Header" node_paths=PackedStringArray("radio")]
+layout_mode = 0
+offset_left = -258.0
+offset_top = 95.0
+offset_right = 259.0
+offset_bottom = 135.0
+theme_override_font_sizes/normal_font_size = 14
+text = "Driving on Gobuth Street"
+horizontal_alignment = 1
+script = ExtResource("10_cegan")
+radio = NodePath("../../../Radio")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Header"]
 self_modulate = Color(0.3168, 0.32501334, 0.44, 1)
@@ -574,3 +605,11 @@ billboard = 2
 texture_filter = 2
 render_priority = 1
 texture = ExtResource("11_efxa6")
+
+[node name="Radio" type="Node" parent="."]
+script = ExtResource("13_ycdy4")
+songs = Array[AudioStream]([ExtResource("14_074og"), ExtResource("15_cegan"), ExtResource("16_82xsv"), ExtResource("17_getpj"), ExtResource("18_ryguw")])
+channel_names = Array[String](["FLOW 24/7", "goblin_nation.fm", "Suntown Down", "Dramatica", "Taxi Tunes"])
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Radio"]
+volume_db = -8.0
