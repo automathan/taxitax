@@ -23,6 +23,7 @@ func _death_area_entered(other: Area3D):
 
 	if parent is Car:
 		print('KILLED')
+		Economy.add_cash(-40)
 		queue_free()
 
 func pick_up():

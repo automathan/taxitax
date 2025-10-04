@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://w0wl86slel28"]
+[gd_scene load_steps=4 format=3 uid="uid://w0wl86slel28"]
 
 [ext_resource type="Texture2D" uid="uid://cjbvddvrcg6ac" path="res://assets/streetlamp.png" id="1_dhixf"]
+[ext_resource type="Script" uid="uid://3kqi37v1r1f1" path="res://scenes/streetlamp.gd" id="1_ku0tr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dhixf"]
 size = Vector3(0.1, 1, 0.1)
 
 [node name="Streetlamp" type="RigidBody3D"]
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_ku0tr")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6377109, 0)
