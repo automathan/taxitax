@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dlhki6ih13wds"]
+[gd_scene load_steps=31 format=3 uid="uid://dlhki6ih13wds"]
 
 [ext_resource type="Script" uid="uid://ufcjwy02k8uo" path="res://camera.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://k3q0idr2tf81" path="res://scenes/car.tscn" id="2_272bh"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cw676sux01gpn" path="res://scenes/road_piece.tscn" id="6_kek77"]
 [ext_resource type="PackedScene" uid="uid://w0wl86slel28" path="res://scenes/streetlamp.tscn" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bisocnccuvmb0" path="res://scenes/waypoint_marker.tscn" id="7_272bh"]
+[ext_resource type="Texture2D" uid="uid://drxt0un05kr48" path="res://assets/ninep.png" id="10_4c57u"]
+[ext_resource type="Texture2D" uid="uid://b1warrqnsb165" path="res://assets/tree.png" id="11_efxa6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 
@@ -56,6 +58,16 @@ albedo_color = Color(0.3555, 0.45, 0.360225, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dg77c"]
 render_priority = 0
 next_pass = SubResource("StandardMaterial3D_efxa6")
+shader = ExtResource("4_1bvp3")
+shader_parameter/outline_color = Color(0.1875, 0.23020834, 0.25, 1)
+shader_parameter/outline_threshold = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4c57u"]
+albedo_color = Color(0.9163201, 0.6992, 0.92, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_efxa6"]
+render_priority = 0
+next_pass = SubResource("StandardMaterial3D_4c57u")
 shader = ExtResource("4_1bvp3")
 shader_parameter/outline_color = Color(0.1875, 0.23020834, 0.25, 1)
 shader_parameter/outline_threshold = 0.2
@@ -216,6 +228,22 @@ surface_material_override/0 = SubResource("ShaderMaterial_dg77c")
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 14.361892, 1.4282889, -4.187241)
 surface_material_override/0 = SubResource("ShaderMaterial_dg77c")
 
+[node name="Building6" parent="." instance=ExtResource("5_5vw27")]
+transform = Transform3D(1.4599446, 0.33441502, 0.08202742, -0.33761743, 1.4604833, 0.054800153, -0.06764907, -0.071799375, 1.4967525, -4.6010437, 1.0997043, 10.687686)
+surface_material_override/0 = SubResource("ShaderMaterial_efxa6")
+
+[node name="Building7" parent="." instance=ExtResource("5_5vw27")]
+transform = Transform3D(-1.4987136, 0.0033845352, 0.062015478, 0.00024600842, 1.4980829, -0.075813614, 0.06210728, 0.07573843, 1.4967986, 7.407884, 1.1528556, 10.626785)
+surface_material_override/0 = SubResource("ShaderMaterial_efxa6")
+
+[node name="Building8" parent="." instance=ExtResource("5_5vw27")]
+transform = Transform3D(1.4839728, -0.051043544, -0.21264774, 0.05156433, 1.4991134, -9.313226e-10, 0.21252206, -0.0073100245, 1.4848504, 4.431722, 0.9280653, 10.586949)
+surface_material_override/0 = SubResource("ShaderMaterial_efxa6")
+
+[node name="Building9" parent="." instance=ExtResource("5_5vw27")]
+transform = Transform3D(-1.4611886, 0.025140194, 0.33807608, 0.008526573, 1.4981219, -0.0745517, 0.33890232, 0.07070099, 1.4595021, -1.6838149, 1.3846, 10.761221)
+surface_material_override/0 = SubResource("ShaderMaterial_efxa6")
+
 [node name="RoadPiece" parent="." instance=ExtResource("6_kek77")]
 transform = Transform3D(0.9952052, 0.097808704, 4.2753543e-09, 0, -4.371139e-08, 1, 0.097808704, -0.9952052, -4.3501803e-08, -0.47420105, -0.48327494, -11.854258)
 
@@ -228,6 +256,30 @@ transform = Transform3D(0.992027, -0.12602583, -5.5087646e-09, 0, -4.371139e-08,
 [node name="RoadPiece4" parent="." instance=ExtResource("6_kek77")]
 transform = Transform3D(-0.12602587, -0.992027, -5.5087632e-09, -4.371139e-08, 0, 1, -0.992027, 0.12602587, -4.336287e-08, 6.238748, -0.48327494, -0.4065701)
 
+[node name="RoadPiece5" parent="." instance=ExtResource("6_kek77")]
+transform = Transform3D(-0.12602587, -0.992027, -5.5087632e-09, -4.371139e-08, 0, 1, -0.992027, 0.12602587, -4.336287e-08, 15.931927, -0.48327494, -1.6379793)
+
+[node name="RoadPiece10" parent="." instance=ExtResource("6_kek77")]
+transform = Transform3D(0.113497965, -0.99353826, -5.5087632e-09, -4.245744e-08, -1.0394767e-08, 1, -0.99353826, -0.113497965, -4.336287e-08, 10.147527, -0.48327428, 13.923942)
+
+[node name="RoadPiece12" parent="." instance=ExtResource("6_kek77")]
+transform = Transform3D(-0.022477992, -0.9997474, -5.5087632e-09, -4.3475747e-08, -4.5326636e-09, 1, -0.9997474, 0.022477992, -4.336287e-08, 0.4535815, -0.48327434, 13.480811)
+
+[node name="RoadPiece11" parent="." instance=ExtResource("6_kek77")]
+transform = Transform3D(0.113497965, -0.99353826, -5.5087632e-09, -4.245744e-08, -1.0394767e-08, 1, -0.99353826, -0.113497965, -4.336287e-08, 22.65874, -0.48327416, 15.353174)
+
+[node name="RoadPiece9" parent="." instance=ExtResource("6_kek77")]
+transform = Transform3D(0.12199056, -0.9925313, -5.5087632e-09, -4.2366995e-08, -1.0757482e-08, 1, -0.9925313, -0.12199056, -4.336287e-08, 25.450666, -0.48327488, -1.661289)
+
+[node name="RoadPiece6" parent="." instance=ExtResource("6_kek77")]
+transform = Transform3D(-0.99879247, -0.04912871, -5.5087632e-09, -7.632476e-09, 4.303987e-08, 1, -0.04912871, 0.99879247, -4.336287e-08, 18.014751, -0.4832752, -7.947191)
+
+[node name="RoadPiece7" parent="." instance=ExtResource("6_kek77")]
+transform = Transform3D(-0.99879247, -0.04912871, -5.5087632e-09, -7.632476e-09, 4.303987e-08, 1, -0.04912871, 0.99879247, -4.336287e-08, 17.413706, -0.48327467, 4.2721252)
+
+[node name="RoadPiece8" parent="." instance=ExtResource("6_kek77")]
+transform = Transform3D(-0.99336076, -0.1150412, -5.5087637e-09, -1.0460709e-08, 4.2441236e-08, 1, -0.1150412, 0.99336076, -4.336287e-08, 16.598854, -0.48327425, 13.97423)
+
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.9952052, 0.097808704, 4.2753543e-09, 0, -4.371139e-08, 1, 0.097808704, -0.9952052, -4.3501803e-08, -2.3337958, -0.43078268, -11.952744)
 mesh = SubResource("BoxMesh_efxa6")
@@ -235,6 +287,21 @@ surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
 
 [node name="MeshInstance3D11" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.9952052, 0.097808704, 4.2753543e-09, 0, -4.371139e-08, 1, 0.097808704, -0.9952052, -4.3501803e-08, 1.4871047, -0.43078268, -11.952744)
+mesh = SubResource("BoxMesh_efxa6")
+surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9933306, -0.11530123, 4.2753543e-09, -9.262651e-09, -4.2718717e-08, 1, -0.11530123, -0.9933306, -4.3501803e-08, 2.568014, -0.43078172, 6.446623)
+mesh = SubResource("BoxMesh_efxa6")
+surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.115301274, -0.9933306, 4.2753534e-09, -4.2718717e-08, 9.262649e-09, 1, -0.9933306, 0.115301274, -4.35018e-08, 7.3500543, -0.43078196, 1.3575643)
+mesh = SubResource("BoxMesh_efxa6")
+surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.115301274, -0.9933306, 4.2753534e-09, -4.2718717e-08, 9.262649e-09, 1, -0.9933306, 0.115301274, -4.35018e-08, 6.9317465, -0.4307821, -2.2461915)
 mesh = SubResource("BoxMesh_efxa6")
 surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
 
@@ -279,11 +346,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9917417, 2.9802322e-07, -7
 [node name="WaypointMarker" parent="." instance=ExtResource("7_272bh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7457826, 0, -8.915827)
 
-[node name="Streetlamp" parent="." instance=ExtResource("7_5vw27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39412743, 0, -6.144681)
-
 [node name="Streetlamp2" parent="." instance=ExtResource("7_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8064404, 0.050479293, -7.574259)
+
+[node name="Streetlamp5" parent="." instance=ExtResource("7_5vw27")]
+transform = Transform3D(-0.9996793, 0.025322022, -8.742278e-08, 0.025322022, 0.9996793, 0, 8.7394746e-08, -2.2137214e-09, -1, -2.4317372, 0.050479293, -7.839414)
+
+[node name="Streetlamp6" parent="." instance=ExtResource("7_5vw27")]
+transform = Transform3D(-0.9951023, -0.098850824, -8.674788e-08, -0.098850824, 0.9951023, -1.0841922e-08, 8.7394746e-08, -2.2137214e-09, -1, -2.4838777, 0.050479293, -9.618173)
+
+[node name="Streetlamp7" parent="." instance=ExtResource("7_5vw27")]
+transform = Transform3D(-0.9996793, 0.025322022, -8.742278e-08, 0.025322022, 0.9996793, 0, 8.7394746e-08, -2.2137214e-09, -1, -2.1688905, 0.050479293, -11.595547)
 
 [node name="Streetlamp3" parent="." instance=ExtResource("7_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8064404, 0.050479293, -9.063986)
@@ -296,7 +369,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5014567, 0, -5.469057)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Header" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
@@ -306,7 +379,7 @@ offset_right = 20.0
 offset_bottom = 40.0
 grow_horizontal = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Header"]
 layout_mode = 0
 offset_left = -189.0
 offset_top = 10.0
@@ -315,3 +388,106 @@ offset_bottom = 50.0
 theme_override_font_sizes/normal_font_size = 14
 text = "Driving on Gobuth Street"
 horizontal_alignment = 1
+
+[node name="Footer" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Footer"]
+self_modulate = Color(0.5, 0.39200002, 0.32, 1)
+layout_mode = 0
+offset_left = -161.0
+offset_top = -58.0
+offset_right = 169.0
+offset_bottom = 16.0
+texture = ExtResource("10_4c57u")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Footer/NinePatchRect"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = 13.0
+offset_right = 351.0
+offset_bottom = 89.0
+theme_override_font_sizes/normal_font_size = 14
+text = "Passenger:
+Take me to Pluplop and 5th!"
+horizontal_alignment = 1
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.876272, 0, 2.6583774)
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92143685, 0)
+pixel_size = 0.03
+billboard = 2
+texture_filter = 2
+render_priority = 1
+texture = ExtResource("11_efxa6")
+
+[node name="Node3D2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.609701, 0, 3.1712143)
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92143685, 0)
+pixel_size = 0.03
+billboard = 2
+texture_filter = 2
+render_priority = 1
+texture = ExtResource("11_efxa6")
+
+[node name="Node3D3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.318341, 0, 3.4066086)
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92143685, 0)
+pixel_size = 0.03
+billboard = 2
+texture_filter = 2
+render_priority = 1
+texture = ExtResource("11_efxa6")
+
+[node name="Node3D4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.135978, 0, 4.152635)
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92143685, 0)
+pixel_size = 0.03
+billboard = 2
+texture_filter = 2
+render_priority = 1
+texture = ExtResource("11_efxa6")
+
+[node name="Node3D5" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.281, 0, 5.1644354)
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92143685, 0)
+pixel_size = 0.03
+billboard = 2
+texture_filter = 2
+render_priority = 1
+texture = ExtResource("11_efxa6")
+
+[node name="Node3D6" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.922423, 0, 6.8791347)
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92143685, 0)
+pixel_size = 0.03
+billboard = 2
+texture_filter = 2
+render_priority = 1
+texture = ExtResource("11_efxa6")
