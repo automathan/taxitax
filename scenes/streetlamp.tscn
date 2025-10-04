@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://w0wl86slel28"]
+
+[ext_resource type="Texture2D" uid="uid://cjbvddvrcg6ac" path="res://assets/streetlamp.png" id="1_dhixf"]
+
+[node name="Streetlamp" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6377109, 0)
+pixel_size = 0.02
+texture_filter = 2
+texture = ExtResource("1_dhixf")
