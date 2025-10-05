@@ -1,6 +1,7 @@
-[gd_scene load_steps=62 format=3 uid="uid://dlhki6ih13wds"]
+[gd_scene load_steps=65 format=3 uid="uid://dlhki6ih13wds"]
 
 [ext_resource type="Script" uid="uid://ufcjwy02k8uo" path="res://camera.gd" id="1_h2yge"]
+[ext_resource type="Script" uid="uid://cubbewhrap0rj" path="res://main.gd" id="1_seu75"]
 [ext_resource type="PackedScene" uid="uid://k3q0idr2tf81" path="res://scenes/car.tscn" id="2_272bh"]
 [ext_resource type="Shader" uid="uid://c0sj1qhrf8m6g" path="res://cel.gdshader" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://keua02epfw03" path="res://scenes/building.tscn" id="5_5vw27"]
@@ -19,7 +20,9 @@
 [ext_resource type="Script" uid="uid://ctlvbm4lcihsm" path="res://passenger_dialogue.gd" id="12_getpj"]
 [ext_resource type="Script" uid="uid://da1wdcfxm0q27" path="res://radio.gd" id="13_ycdy4"]
 [ext_resource type="AudioStream" uid="uid://badilklb5ega6" path="res://assets/audio/radio/RADIO_FLUSS.ogg" id="14_074og"]
+[ext_resource type="Script" uid="uid://qjx37gdb0wb2" path="res://escape_menu.gd" id="14_htxhm"]
 [ext_resource type="AudioStream" uid="uid://bj428qjs84dfl" path="res://assets/audio/radio/RADIO_goblin.ogg" id="15_cegan"]
+[ext_resource type="AudioStream" uid="uid://cier6hgvkfek6" path="res://assets/audio/mech_click.wav" id="15_jq2sk"]
 [ext_resource type="PackedScene" uid="uid://dvy32ptf6ag5s" path="res://scenes/building_simple.tscn" id="15_kq58d"]
 [ext_resource type="Script" uid="uid://7w0pka6qy1m1" path="res://spawn_manager.gd" id="15_xuqvo"]
 [ext_resource type="AudioStream" uid="uid://dcciqrecdl5a1" path="res://assets/audio/radio/RADIO_GoingRogue.ogg" id="16_82xsv"]
@@ -171,8 +174,10 @@ shader_parameter/outline_threshold = 0.2
 size = Vector3(1, 6, 1)
 
 [node name="Root" type="Node3D"]
+script = ExtResource("1_seu75")
 
 [node name="Radio" type="Node" parent="."]
+process_mode = 3
 script = ExtResource("13_ycdy4")
 songs = Array[AudioStream]([ExtResource("14_074og"), ExtResource("15_cegan"), ExtResource("16_82xsv"), ExtResource("17_getpj"), ExtResource("18_ryguw")])
 channel_names = Array[String](["FLOW 24/7", "goblin_nation.fm", "Suntown Down", "Dramatica", "Taxi Tunes"])
@@ -327,6 +332,72 @@ offset_bottom = 688.0
 theme_override_font_sizes/normal_font_size = 7
 text = "Criminal Record:
 "
+
+[node name="EscapeMenu" type="Control" parent="CanvasLayer"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -17.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("14_htxhm")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/EscapeMenu"]
+stream = ExtResource("15_jq2sk")
+volume_db = -5.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/EscapeMenu"]
+visible = false
+self_modulate = Color(0.3168, 0.32501334, 0.44, 1)
+layout_mode = 0
+offset_left = -50.0
+offset_top = -26.0
+offset_right = 91.0
+offset_bottom = 46.0
+texture = ExtResource("10_4c57u")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Button" type="Button" parent="CanvasLayer/EscapeMenu/NinePatchRect"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 141.0
+offset_bottom = 30.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 7
+text = "RESUME"
+flat = true
+
+[node name="Button2" type="Button" parent="CanvasLayer/EscapeMenu/NinePatchRect"]
+layout_mode = 0
+offset_top = 27.0
+offset_right = 141.0
+offset_bottom = 49.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 7
+text = "FULLSCREEN
+"
+flat = true
+
+[node name="Button3" type="Button" parent="CanvasLayer/EscapeMenu/NinePatchRect"]
+layout_mode = 0
+offset_top = 45.0
+offset_right = 141.0
+offset_bottom = 67.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 7
+text = "QUIT
+"
+flat = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0xm2m")
