@@ -31,7 +31,7 @@ func _area_entered(other: Area3D):
 
 func activate():
 	active = true
-	sprite.modulate = Color.WHITE
+	sprite.modulate = Color('ffd073')
 
 func car_arrived():
 	car.busy = false

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsw03ehwdwtlo"]
+
+[ext_resource type="Texture2D" uid="uid://b1warrqnsb165" path="res://assets/textures/tree.png" id="1_avsvi"]
+
+[node name="Tree" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1704729, 0)
+pixel_size = 0.04
+billboard = 2
+texture_filter = 2
+render_priority = 1
+texture = ExtResource("1_avsvi")
