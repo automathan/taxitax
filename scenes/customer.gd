@@ -17,11 +17,19 @@ var entering: bool = false
 var enter_time: float = 0
 var fading: bool = false
 var waypoint
+var jump_timer: float
 
 func _ready() -> void:
 	death_area.area_entered.connect(_death_area_entered)
 	sprite.texture = sprite_variants[randi() % len(sprite_variants)]
 	sprite.flip_h = (randi() % 2) == 0
+	jump_timer = 2 + randf() * 5
+
+func jump():
+	var tween = get_tree().create_tween()
+	tween.chain().tween_property(sprite, 'offset', Vector2(0, 4), .1)
+	tween.chain().tween_property(sprite, 'offset', Vector2(0, 0), .1)
+	jump_timer = 2 + randf() * 5
 
 func _death_area_entered(other: Area3D):
 	var parent = other.get_parent()
@@ -43,6 +51,10 @@ func pick_up():
 		entering = true
 
 func _physics_process(delta: float) -> void:
+	jump_timer -= delta
+	if jump_timer <= 0:
+		jump()
+
 	if not fading and car and car.busy:
 		entering = false
 		label.text = 'TAXI!'
