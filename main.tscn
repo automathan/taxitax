@@ -97,26 +97,6 @@ shader = ExtResource("4_1bvp3")
 shader_parameter/outline_color = Color(0.1875, 0.23020834, 0.25, 1)
 shader_parameter/outline_threshold = 0.2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xuqvo"]
-albedo_color = Color(0.99, 0.82450503, 0.40590003, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kq58d"]
-render_priority = 0
-next_pass = SubResource("StandardMaterial3D_xuqvo")
-shader = ExtResource("4_1bvp3")
-shader_parameter/outline_color = Color(0.36, 0.30960003, 0.05760001, 1)
-shader_parameter/outline_threshold = 0.2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qsp4k"]
-albedo_color = Color(0.55, 0.48455003, 0.31900004, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_seu75"]
-render_priority = 0
-next_pass = SubResource("StandardMaterial3D_qsp4k")
-shader = ExtResource("4_1bvp3")
-shader_parameter/outline_color = Color(0.36, 0.30960003, 0.05760001, 1)
-shader_parameter/outline_threshold = 0.2
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4c57u"]
 albedo_color = Color(0.9163201, 0.6992, 0.92, 1)
 
@@ -135,6 +115,26 @@ render_priority = 0
 next_pass = SubResource("StandardMaterial3D_a6jrf")
 shader = ExtResource("4_1bvp3")
 shader_parameter/outline_color = Color(0.1875, 0.23020834, 0.25, 1)
+shader_parameter/outline_threshold = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xuqvo"]
+albedo_color = Color(0.99, 0.82450503, 0.40590003, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kq58d"]
+render_priority = 0
+next_pass = SubResource("StandardMaterial3D_xuqvo")
+shader = ExtResource("4_1bvp3")
+shader_parameter/outline_color = Color(0.36, 0.30960003, 0.05760001, 1)
+shader_parameter/outline_threshold = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qsp4k"]
+albedo_color = Color(0.55, 0.48455003, 0.31900004, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_seu75"]
+render_priority = 0
+next_pass = SubResource("StandardMaterial3D_qsp4k")
+shader = ExtResource("4_1bvp3")
+shader_parameter/outline_color = Color(0.36, 0.30960003, 0.05760001, 1)
 shader_parameter/outline_threshold = 0.2
 
 [sub_resource type="BoxMesh" id="BoxMesh_efxa6"]
@@ -265,9 +265,9 @@ grow_vertical = 0
 self_modulate = Color(0.5, 0.39200002, 0.32, 1)
 layout_mode = 0
 offset_left = -161.0
-offset_top = -58.0
+offset_top = -61.0
 offset_right = 169.0
-offset_bottom = 16.0
+offset_bottom = 19.0
 texture = ExtResource("10_4c57u")
 patch_margin_left = 4
 patch_margin_top = 4
@@ -278,12 +278,23 @@ script = ExtResource("12_getpj")
 [node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Footer/NinePatchRect"]
 layout_mode = 0
 offset_left = -29.0
-offset_top = 13.0
+offset_top = 7.0
 offset_right = 351.0
-offset_bottom = 89.0
+offset_bottom = 83.0
 theme_override_font_sizes/normal_font_size = 14
 text = "Passenger:
 Take me to Pluplop and 5th!"
+horizontal_alignment = 1
+
+[node name="RewardLabel" type="RichTextLabel" parent="CanvasLayer/Footer/NinePatchRect"]
+self_modulate = Color(0.65999997, 1, 0.6883333, 1)
+layout_mode = 0
+offset_left = -29.0
+offset_top = 56.0
+offset_right = 351.0
+offset_bottom = 132.0
+theme_override_font_sizes/normal_font_size = 14
+text = "$100"
 horizontal_alignment = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -579,46 +590,6 @@ transform = Transform3D(-0.15948482, 0, -0.9872004, 0, 1, 0, 0.9872005, 0, -0.15
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_dg77c")
 
-[node name="Building11" parent="Buildings" instance=ExtResource("5_5vw27")]
-transform = Transform3D(-0.64723545, 0.16516553, -0.89934003, 0.038233276, 1.8426698, 0.08681684, 1.3660299, 0.026682924, -0.42854422, -3.7701404, 2.8855162, 53.129208)
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_kq58d")
-
-[node name="Building17" parent="Buildings" instance=ExtResource("5_5vw27")]
-transform = Transform3D(-0.64832187, -0.09979722, -0.90180707, -0.023101522, 1.8474858, -0.052456945, 1.3658543, -0.016122503, -0.42894274, -17.882183, 2.8855162, 50.77644)
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_kq58d")
-
-[node name="Building18" parent="Buildings" instance=ExtResource("5_5vw27")]
-transform = Transform3D(-0.011463584, 3.5529902, -0.27806246, -2.162581, -0.009852462, 0.044340592, 0.04268217, 0.4550783, 2.1719122, -10.960955, 1.1006722, 53.159966)
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_seu75")
-
-[node name="Building12" parent="Buildings" instance=ExtResource("5_5vw27")]
-transform = Transform3D(-0.63904, 0.10880245, -0.90439683, 0.21484175, 1.8314744, -0.0020340679, 1.3534712, -0.23934619, -0.42668718, -6.0184507, 2.8855162, 52.060276)
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_kq58d")
-
-[node name="Building16" parent="Buildings" instance=ExtResource("5_5vw27")]
-transform = Transform3D(-0.6482292, 0.02680907, -0.9033315, 0.19581705, 1.8327307, -0.04556969, 1.3519864, -0.2525924, -0.42651504, -15.111931, 2.8855162, 50.724007)
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_kq58d")
-
-[node name="Building13" parent="Buildings" instance=ExtResource("5_5vw27")]
-transform = Transform3D(-0.6272012, 0.12484902, -0.907411, 0.614233, 1.6764859, -0.118308514, 1.2311575, -0.77280724, -0.40324676, -8.383253, 2.8855162, 51.302097)
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_kq58d")
-
-[node name="Building15" parent="Buildings" instance=ExtResource("5_5vw27")]
-transform = Transform3D(-0.6272012, 0.124849014, -0.907411, 0.614233, 1.6764859, -0.118308514, 1.2311575, -0.77280724, -0.40324676, -12.613699, 2.8855162, 50.61866)
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_kq58d")
-
-[node name="Building14" parent="Buildings" instance=ExtResource("5_5vw27")]
-transform = Transform3D(-0.5995187, 0.18223311, -0.91274285, 0.8965509, 1.4552685, -0.17268632, 1.0598046, -1.1280105, -0.37024224, -10.608694, 2.3864264, 50.611813)
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_kq58d")
-
 [node name="Building6" parent="Buildings" instance=ExtResource("5_5vw27")]
 transform = Transform3D(0.23434898, 0.13431525, -1.47548, -0.19618379, 1.4834827, 0.103884086, 1.4685345, 0.17674668, 0.2493353, -12.399391, 1.051188, -9.439125)
 skeleton = NodePath("../..")
@@ -688,6 +659,49 @@ skeleton = NodePath("../../..")
 [node name="Building3" parent="Buildings/Gobuth" instance=ExtResource("5_5vw27")]
 transform = Transform3D(-1.2083048, 0.00140063, -0.342569, -0.04945766, 1.013852, 0.04169502, 0.7147252, 0.07252457, -0.5762566, 1.5081518, 0.75455564, 0.46591902)
 skeleton = NodePath("../../..")
+
+[node name="Frytown" type="Node3D" parent="Buildings"]
+metadata/_edit_lock_ = true
+
+[node name="Building11" parent="Buildings/Frytown" instance=ExtResource("5_5vw27")]
+transform = Transform3D(-0.64723545, 0.16516553, -0.89934, 0.038233276, 1.8426698, 0.08681684, 1.3660297, 0.026682924, -0.42854422, -3.7701404, 2.8855162, 53.129208)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_kq58d")
+
+[node name="Building17" parent="Buildings/Frytown" instance=ExtResource("5_5vw27")]
+transform = Transform3D(-0.64832187, -0.09979722, -0.90180707, -0.023101522, 1.8474858, -0.052456945, 1.3658543, -0.016122501, -0.42894274, -17.882183, 2.8855162, 50.77644)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_kq58d")
+
+[node name="Building18" parent="Buildings/Frytown" instance=ExtResource("5_5vw27")]
+transform = Transform3D(-0.011463584, 3.5529902, -0.2780625, -2.162581, -0.009852462, 0.044340592, 0.042682175, 0.4550783, 2.1719122, -10.960954, 1.1006722, 53.159966)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_seu75")
+
+[node name="Building12" parent="Buildings/Frytown" instance=ExtResource("5_5vw27")]
+transform = Transform3D(-0.63903993, 0.10880245, -0.9043969, 0.21484175, 1.8314744, -0.0020340679, 1.3534712, -0.23934619, -0.42668718, -6.01845, 2.8855162, 52.060276)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_kq58d")
+
+[node name="Building16" parent="Buildings/Frytown" instance=ExtResource("5_5vw27")]
+transform = Transform3D(-0.6482292, 0.02680907, -0.9033315, 0.19581705, 1.8327307, -0.04556969, 1.3519864, -0.2525924, -0.42651504, -15.11193, 2.8855162, 50.724007)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_kq58d")
+
+[node name="Building13" parent="Buildings/Frytown" instance=ExtResource("5_5vw27")]
+transform = Transform3D(-0.6272012, 0.124849014, -0.907411, 0.614233, 1.6764859, -0.118308514, 1.2311575, -0.77280724, -0.40324676, -8.383253, 2.8855162, 51.3021)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_kq58d")
+
+[node name="Building15" parent="Buildings/Frytown" instance=ExtResource("5_5vw27")]
+transform = Transform3D(-0.6272012, 0.12484901, -0.907411, 0.614233, 1.6764859, -0.118308514, 1.2311575, -0.77280724, -0.40324676, -12.613698, 2.8855162, 50.61866)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_kq58d")
+
+[node name="Building14" parent="Buildings/Frytown" instance=ExtResource("5_5vw27")]
+transform = Transform3D(-0.5995187, 0.18223311, -0.9127428, 0.8965509, 1.4552685, -0.17268632, 1.0598046, -1.1280105, -0.37024224, -10.608694, 2.3864264, 50.611813)
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_kq58d")
 
 [node name="Obstacles" type="Node3D" parent="."]
 metadata/_edit_lock_ = true

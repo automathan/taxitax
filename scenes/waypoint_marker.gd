@@ -9,6 +9,7 @@ extends Node3D
 @export var display_name: String
 
 var active: bool = false
+var reward: int = 0
 
 func _ready() -> void:
 	var tween = get_tree().create_tween()
@@ -29,13 +30,14 @@ func _area_entered(other: Area3D):
 	if parent is Car:
 		car_arrived()
 
-func activate():
+func activate(new_reward: int):
+	reward = new_reward
 	active = true
 	sprite.modulate = Color('ffd073')
 
 func car_arrived():
 	car.busy = false
-	Economy.add_cash(50)
+	Economy.add_cash(reward)
 	sfx.play()
 
 	var tween = get_tree().create_tween()

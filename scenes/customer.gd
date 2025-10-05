@@ -45,7 +45,6 @@ func die():
 	splat.global_position = global_position
 	queue_free()
 
-
 func pick_up():
 	if not car.busy:
 		entering = true
@@ -73,8 +72,10 @@ func enter_taxi():
 	sfx.play()
 	fade_out()
 	entering = false
-	waypoint.activate()
-	dialogue.set_content('Take me to %s' % waypoint.display_name)
+	var distance = global_position.distance_to(waypoint.global_position)
+	var reward = clamp(10 * round((distance * 1.2) / 10), 10, 100)
+	waypoint.activate(reward)
+	dialogue.set_content(waypoint)
 	car.busy = true
 
 func fade_out():
