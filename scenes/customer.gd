@@ -38,8 +38,7 @@ func _death_area_entered(other: Area3D):
 		die()
 
 func die():
-	print('KILLED')
-	Economy.add_cash(-40)
+	Economy.add_cash(-40, '[-$40] Murder')
 	var splat = splat_scene.instantiate()
 	get_parent().add_child(splat)
 	splat.global_position = global_position

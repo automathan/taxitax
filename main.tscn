@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://dlhki6ih13wds"]
+[gd_scene load_steps=56 format=3 uid="uid://dlhki6ih13wds"]
 
 [ext_resource type="Script" uid="uid://ufcjwy02k8uo" path="res://camera.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://k3q0idr2tf81" path="res://scenes/car.tscn" id="2_272bh"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://c2en0h4p1rk7n" path="res://radio_label.gd" id="10_cegan"]
 [ext_resource type="Script" uid="uid://bibtfpw5swqim" path="res://cash_ui.gd" id="11_dg77c"]
 [ext_resource type="PackedScene" uid="uid://b1a3p50nn8yoc" path="res://scenes/granny.tscn" id="12_0odxb"]
+[ext_resource type="Script" uid="uid://cttyxdjysnwlu" path="res://crimes.gd" id="12_a6jrf"]
 [ext_resource type="Script" uid="uid://ctlvbm4lcihsm" path="res://passenger_dialogue.gd" id="12_getpj"]
 [ext_resource type="Script" uid="uid://da1wdcfxm0q27" path="res://radio.gd" id="13_ycdy4"]
 [ext_resource type="AudioStream" uid="uid://badilklb5ega6" path="res://assets/audio/radio/RADIO_FLUSS.ogg" id="14_074og"]
@@ -170,8 +171,7 @@ layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
+offset_right = 40.0
 offset_bottom = 40.0
 grow_horizontal = 2
 
@@ -188,11 +188,11 @@ horizontal_alignment = 1
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Header"]
 layout_mode = 0
-offset_left = -183.0
-offset_top = 49.0
-offset_right = 195.0
-offset_bottom = 89.0
-theme_override_font_sizes/normal_font_size = 14
+offset_left = -91.0
+offset_top = 42.0
+offset_right = 91.0
+offset_bottom = 82.0
+theme_override_font_sizes/normal_font_size = 7
 text = "Time until tax ($300): 1m 13s "
 horizontal_alignment = 1
 script = ExtResource("8_1u8w0")
@@ -205,7 +205,7 @@ offset_top = 101.0
 offset_right = 259.0
 offset_bottom = 141.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.23529412)
-theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/normal_font_size = 7
 text = "Driving on Gobuth Street"
 horizontal_alignment = 1
 script = ExtResource("10_cegan")
@@ -214,10 +214,10 @@ radio = NodePath("../../../Radio")
 [node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Header"]
 self_modulate = Color(0.3168, 0.32501334, 0.44, 1)
 layout_mode = 0
-offset_left = -123.0
-offset_top = -11.0
-offset_right = 125.0
-offset_bottom = 44.0
+offset_left = -88.0
+offset_top = -8.0
+offset_right = 88.0
+offset_bottom = 37.0
 texture = ExtResource("10_4c57u")
 patch_margin_left = 4
 patch_margin_top = 4
@@ -227,10 +227,10 @@ patch_margin_bottom = 4
 [node name="NinePatchRect2" type="NinePatchRect" parent="CanvasLayer/Header"]
 self_modulate = Color(0.87, 1, 0.90683335, 1)
 layout_mode = 0
-offset_left = -75.0
-offset_top = 9.0
-offset_right = 76.0
-offset_bottom = 35.0
+offset_left = -56.0
+offset_top = 11.0
+offset_right = 56.0
+offset_bottom = 27.0
 texture = ExtResource("10_4c57u")
 patch_margin_left = 5
 patch_margin_top = 5
@@ -241,9 +241,10 @@ script = ExtResource("11_dg77c")
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Header/NinePatchRect2"]
 self_modulate = Color(0.406, 0.58, 0.4089, 1)
 layout_mode = 0
-offset_right = 144.0
-offset_bottom = 35.0
-theme_override_font_sizes/normal_font_size = 14
+offset_left = -39.0
+offset_right = 105.0
+offset_bottom = 20.0
+theme_override_font_sizes/normal_font_size = 7
 text = "$100"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -255,19 +256,18 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
 offset_top = -40.0
-offset_right = 20.0
+offset_right = 40.0
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Footer"]
 self_modulate = Color(0.5, 0.39200002, 0.32, 1)
 layout_mode = 0
-offset_left = -161.0
-offset_top = -61.0
-offset_right = 169.0
-offset_bottom = 19.0
+offset_left = -120.0
+offset_top = -24.0
+offset_right = 120.0
+offset_bottom = 27.0
 texture = ExtResource("10_4c57u")
 patch_margin_left = 4
 patch_margin_top = 4
@@ -277,11 +277,10 @@ script = ExtResource("12_getpj")
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Footer/NinePatchRect"]
 layout_mode = 0
-offset_left = -29.0
 offset_top = 7.0
-offset_right = 351.0
+offset_right = 240.0
 offset_bottom = 83.0
-theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/normal_font_size = 7
 text = "Passenger:
 Take me to Pluplop and 5th!"
 horizontal_alignment = 1
@@ -289,13 +288,29 @@ horizontal_alignment = 1
 [node name="RewardLabel" type="RichTextLabel" parent="CanvasLayer/Footer/NinePatchRect"]
 self_modulate = Color(0.65999997, 1, 0.6883333, 1)
 layout_mode = 0
-offset_left = -29.0
-offset_top = 56.0
-offset_right = 351.0
-offset_bottom = 132.0
-theme_override_font_sizes/normal_font_size = 14
+offset_top = 35.0
+offset_right = 240.0
+offset_bottom = 50.0
+theme_override_font_sizes/normal_font_size = 7
 text = "$100"
 horizontal_alignment = 1
+
+[node name="Crimes" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("12_a6jrf")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Crimes"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 269.0
+offset_bottom = 688.0
+theme_override_font_sizes/normal_font_size = 7
+text = "Criminal Record:
+"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0xm2m")

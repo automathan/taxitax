@@ -9,7 +9,7 @@ func _ready() -> void:
 	radio.station_changed.connect(_station_changed)
 
 func _station_changed():
-	text = 'Listening to: %s' % radio.channel_names[radio.idx]
+	text = 'Channel: %s' % radio.channel_names[radio.idx]
 	modulate = Color.WHITE
 
 	if tween: 

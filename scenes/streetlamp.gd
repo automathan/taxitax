@@ -5,5 +5,5 @@ func _ready() -> void:
 
 func hit(other):
 	if other is Car:
-		Economy.add_cash(-5)
+		Economy.add_cash(-5, '[-$5] Destroyed street light')
 		call_deferred('set_contact_monitor', false)
