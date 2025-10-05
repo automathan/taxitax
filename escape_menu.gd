@@ -9,7 +9,7 @@ extends Control
 @onready var crimes = $"../Crimes"
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed('ui_cancel'):
+	if event.is_action_pressed('ui_cancel') and not Economy.is_game_over:
 		get_tree().paused = not get_tree().paused
 		sfx.pitch_scale = 1.2 if get_tree().paused else .8
 		sfx.play()

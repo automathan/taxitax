@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://dlhki6ih13wds"]
+[gd_scene load_steps=69 format=3 uid="uid://dlhki6ih13wds"]
 
 [ext_resource type="Script" uid="uid://ufcjwy02k8uo" path="res://camera.gd" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://cubbewhrap0rj" path="res://main.gd" id="1_seu75"]
@@ -25,7 +25,9 @@
 [ext_resource type="AudioStream" uid="uid://cier6hgvkfek6" path="res://assets/audio/mech_click.wav" id="15_jq2sk"]
 [ext_resource type="PackedScene" uid="uid://dvy32ptf6ag5s" path="res://scenes/building_simple.tscn" id="15_kq58d"]
 [ext_resource type="Script" uid="uid://7w0pka6qy1m1" path="res://spawn_manager.gd" id="15_xuqvo"]
+[ext_resource type="Script" uid="uid://cif3a3b4uj7b2" path="res://game_over_ui.gd" id="16_4k2k6"]
 [ext_resource type="AudioStream" uid="uid://dcciqrecdl5a1" path="res://assets/audio/radio/RADIO_GoingRogue.ogg" id="16_82xsv"]
+[ext_resource type="AudioStream" uid="uid://gy8vmc5fwk3f" path="res://assets/audio/klink1.wav" id="17_0rl1p"]
 [ext_resource type="AudioStream" uid="uid://0q5sr26vp0no" path="res://assets/audio/radio/RADIO_Sang1.ogg" id="17_getpj"]
 [ext_resource type="AudioStream" uid="uid://btl1img4ipgq5" path="res://assets/audio/radio/RADIO_Taxi.ogg" id="18_ryguw"]
 [ext_resource type="Script" uid="uid://bernp66rnq5cx" path="res://waypoints.gd" id="19_82xsv"]
@@ -418,6 +420,92 @@ text = "Controls:
 WASD - Drive
 F - Flip / Unflip
 R - Cycle Radio"
+horizontal_alignment = 1
+
+[node name="GameOver" type="Control" parent="CanvasLayer"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -28.0
+offset_right = 20.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16_4k2k6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/GameOver"]
+stream = ExtResource("17_0rl1p")
+volume_db = -5.0
+pitch_scale = 0.1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/GameOver"]
+self_modulate = Color(0.3168, 0.32501334, 0.44, 1)
+layout_mode = 0
+offset_left = -50.0
+offset_top = -36.0
+offset_right = 91.0
+offset_bottom = 62.0
+texture = ExtResource("10_4c57u")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Button2" type="Button" parent="CanvasLayer/GameOver/NinePatchRect"]
+layout_mode = 0
+offset_top = 62.0
+offset_right = 141.0
+offset_bottom = 84.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 7
+text = "TRY AGAIN
+"
+flat = true
+
+[node name="Button3" type="Button" parent="CanvasLayer/GameOver/NinePatchRect"]
+layout_mode = 0
+offset_top = 77.0
+offset_right = 141.0
+offset_bottom = 99.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 7
+text = "QUIT
+"
+flat = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/GameOver/NinePatchRect"]
+self_modulate = Color(0.65801, 0.4959, 0.87, 1)
+layout_mode = 0
+offset_top = 8.0
+offset_right = 141.0
+offset_bottom = 25.0
+theme_override_font_sizes/normal_font_size = 7
+text = "BANKRUPCY"
+horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/GameOver/NinePatchRect"]
+layout_mode = 0
+offset_top = 27.0
+offset_right = 141.0
+offset_bottom = 56.0
+theme_override_font_sizes/normal_font_size = 7
+text = "Total Earnings:"
+horizontal_alignment = 1
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer/GameOver/NinePatchRect"]
+self_modulate = Color(0.5192, 0.88, 0.59737337, 1)
+layout_mode = 0
+offset_top = 40.0
+offset_right = 141.0
+offset_bottom = 56.0
+theme_override_font_sizes/normal_font_size = 7
+text = "$1000"
 horizontal_alignment = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
