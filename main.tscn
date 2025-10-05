@@ -470,21 +470,21 @@ horizontal_alignment = 1
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Header"]
 layout_mode = 0
-offset_left = -189.0
-offset_top = 47.0
-offset_right = 189.0
-offset_bottom = 87.0
+offset_left = -183.0
+offset_top = 49.0
+offset_right = 195.0
+offset_bottom = 89.0
 theme_override_font_sizes/normal_font_size = 14
-text = "Time to tax: 1m 13s "
+text = "Time until tax ($300): 1m 13s "
 horizontal_alignment = 1
 
 [node name="RadioLabel" type="RichTextLabel" parent="CanvasLayer/Header" node_paths=PackedStringArray("radio")]
 self_modulate = Color(0.7270002, 0.58000004, 1, 1)
 layout_mode = 0
 offset_left = -258.0
-offset_top = 95.0
+offset_top = 101.0
 offset_right = 259.0
-offset_bottom = 135.0
+offset_bottom = 141.0
 theme_override_font_sizes/normal_font_size = 14
 text = "Driving on Gobuth Street"
 horizontal_alignment = 1
