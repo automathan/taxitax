@@ -13,7 +13,7 @@ albedo_color = Color(0.60040003, 0.73944, 0.79, 1)
 render_priority = 0
 next_pass = SubResource("StandardMaterial3D_1bvp3")
 shader = ExtResource("1_qtlar")
-shader_parameter/outline_color = Color(0.1875, 0.23020834, 0.25, 1)
+shader_parameter/outline_color = Color(0.22200002, 0.32313335, 0.37, 1)
 shader_parameter/outline_threshold = 0.2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uvy8r"]
@@ -28,7 +28,7 @@ albedo_color = Color(0.52, 0.30766666, 0.2652, 1)
 render_priority = 0
 next_pass = SubResource("StandardMaterial3D_rk7hg")
 shader = ExtResource("1_qtlar")
-shader_parameter/outline_color = Color(0.1875, 0.23020834, 0.25, 1)
+shader_parameter/outline_color = Color(0.25, 0.18166667, 0.15, 1)
 shader_parameter/outline_threshold = 0.2
 
 [node name="Building" type="MeshInstance3D"]

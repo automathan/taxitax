@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://dlhki6ih13wds"]
+[gd_scene load_steps=70 format=3 uid="uid://dlhki6ih13wds"]
 
 [ext_resource type="Script" uid="uid://ufcjwy02k8uo" path="res://camera.gd" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://cubbewhrap0rj" path="res://main.gd" id="1_seu75"]
@@ -184,6 +184,14 @@ shader_parameter/outline_threshold = 0.2
 
 [sub_resource type="BoxMesh" id="BoxMesh_kek77"]
 size = Vector3(1, 6, 1)
+
+[sub_resource type="Curve3D" id="Curve3D_0rl1p"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.16349077, 0, -0.8637904, 0, 0, 0, 0, 0, 0, 2.7017941, 2.3841858e-07, -1.4324669, 0, 0, 0, 0, 0, 0, 0.83720446, 0, 1.4939568),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
 
 [node name="Root" type="Node3D"]
 script = ExtResource("1_seu75")
@@ -685,10 +693,6 @@ waypoints = NodePath("../../Waypoints")
 car = NodePath("../../Car")
 dialogue = NodePath("../../CanvasLayer/Footer/NinePatchRect")
 
-[node name="Grandma" parent="People" instance=ExtResource("12_0odxb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9107003, 0, -0.721915)
-splat_scene = ExtResource("9_lswn8")
-
 [node name="Timer" type="Timer" parent="People"]
 autostart = true
 
@@ -847,6 +851,21 @@ surface_material_override/0 = SubResource("ShaderMaterial_efxa6")
 
 [node name="Building8" parent="Buildings" instance=ExtResource("5_5vw27")]
 transform = Transform3D(-0.44647294, 0.015357128, -1.4319308, 0.05156433, 1.4991134, -9.313226e-10, 1.4310844, -0.04922437, -0.446737, -12.428978, 0.87954897, -0.23311949)
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_efxa6")
+
+[node name="Building12" parent="Buildings" instance=ExtResource("5_5vw27")]
+transform = Transform3D(-0.43888587, -0.111422494, -1.430022, -0.112295836, 1.4935461, -0.08190748, 1.4299531, 0.0830917, -0.44533914, -17.80144, 1.1451211, -4.6810417)
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_efxa6")
+
+[node name="Building11" parent="Buildings" instance=ExtResource("5_5vw27")]
+transform = Transform3D(-0.82757175, 0.014931885, -1.8435808, 0.095578425, 1.4576026, -1.1990583e-09, 2.6526241, -0.047861334, -0.57516456, -18.90978, -1.4250736, -5.0505486)
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_efxa6")
+
+[node name="Building13" parent="Buildings" instance=ExtResource("5_5vw27")]
+transform = Transform3D(-0.82757187, 0.014931885, -1.8435808, 0.095578425, 1.4576026, -1.1990583e-09, 2.652625, -0.047861334, -0.57516456, -19.52728, -0.4817534, -1.2281895)
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_efxa6")
 
@@ -1580,6 +1599,18 @@ mesh = SubResource("BoxMesh_efxa6")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
 
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="Sidewalks"]
+transform = Transform3D(2.171285, 0.08132972, 4.3661487e-08, -9.443158e-08, -5.6321063e-09, 1, 0.17717701, -0.9966873, -2.0880475e-09, 13.3369055, -0.43078095, 20.100256)
+mesh = SubResource("BoxMesh_efxa6")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
+
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="Sidewalks"]
+transform = Transform3D(2.171285, 0.08132972, 4.3661487e-08, -9.443158e-08, -5.6321063e-09, 1, 0.17717701, -0.9966873, -2.0880475e-09, 17.744457, -0.43078095, 20.573704)
+mesh = SubResource("BoxMesh_efxa6")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
+
 [node name="MeshInstance3D25" type="MeshInstance3D" parent="Sidewalks"]
 transform = Transform3D(0.10900164, -1.39606, 4.2753534e-09, -9.511607e-08, 2.9261458e-09, 1, -2.1757731, -0.06993963, -4.35018e-08, 23.14322, -0.43078092, 26.354921)
 mesh = SubResource("BoxMesh_efxa6")
@@ -1594,6 +1625,12 @@ surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
 
 [node name="MeshInstance3D24" type="MeshInstance3D" parent="Sidewalks"]
 transform = Transform3D(0.78499854, -0.7427177, 4.2753534e-09, -9.175848e-08, -9.305447e-09, 1, -2.0321534, -0.28690365, -4.35018e-08, 1.4450845, -0.43078104, 22.365232)
+mesh = SubResource("BoxMesh_efxa6")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="Sidewalks"]
+transform = Transform3D(-0.21860039, -0.7921869, -1.5854756e-08, -9.175847e-08, -9.305446e-09, 1, -2.1675065, 0.07989475, -4.073466e-08, -3.9384813, -0.43078104, 11.653072)
 mesh = SubResource("BoxMesh_efxa6")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
@@ -1627,3 +1664,33 @@ transform = Transform3D(0.85736513, 0, -0.5147089, 0, 1, 0, 0.51470894, 0, 0.857
 
 [node name="Building4" parent="Sidewalks" instance=ExtResource("29_qsp4k")]
 transform = Transform3D(0.85736513, 0, -0.5147089, 0, 1, 0, 0.51470894, 0, 0.857365, 39.65554, 0.29350448, 26.207869)
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.603626, 0, -0.561574)
+curve = SubResource("Curve3D_0rl1p")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(0.19467297, -8.005592e-08, -0.98086345, -3.5526972e-15, 1, -8.1617046e-08, 0.98086345, 1.5888784e-08, 0.19467297, -0.16349077, 0, -0.8637904)
+
+[node name="Grandma" parent="Path3D/PathFollow3D" instance=ExtResource("12_0odxb")]
+splat_scene = ExtResource("9_lswn8")
+
+[node name="Path3D2" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.192451, 0, 13.443641)
+curve = SubResource("Curve3D_0rl1p")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D2"]
+transform = Transform3D(0.19467297, -8.005592e-08, -0.98086345, -3.5526972e-15, 1, -8.1617046e-08, 0.98086345, 1.5888784e-08, 0.19467297, -0.16349077, 0, -0.8637904)
+
+[node name="Grandma" parent="Path3D2/PathFollow3D" instance=ExtResource("12_0odxb")]
+splat_scene = ExtResource("9_lswn8")
+
+[node name="Path3D3" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.837311, 0, 26.48715)
+curve = SubResource("Curve3D_0rl1p")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D3"]
+transform = Transform3D(0.19467297, -8.005592e-08, -0.98086345, -3.5526972e-15, 1, -8.1617046e-08, 0.98086345, 1.5888784e-08, 0.19467297, -0.16349077, 0, -0.8637904)
+
+[node name="Grandma" parent="Path3D3/PathFollow3D" instance=ExtResource("12_0odxb")]
+splat_scene = ExtResource("9_lswn8")
