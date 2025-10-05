@@ -14,7 +14,7 @@ func _ready() -> void:
 	cycle_song()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed('ui_accept'):
+	if event.is_action_pressed('radio'):
 		cycle_song()
 
 func cycle_song():

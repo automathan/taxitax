@@ -27,3 +27,7 @@ func _physics_process(delta: float) -> void:
 	sprite.speed_scale = linear_velocity.length()
 	engine_sfx.pitch_scale = .8 + linear_velocity.length() / 10
 	engine_sfx.volume_db = -40 + linear_velocity.length() * 1.4
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed('flip'):
+		apply_impulse(Vector3.UP.rotated(basis.y, .2) * 1000, Vector3(.6, 0 ,0))
