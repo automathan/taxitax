@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1a3p50nn8yoc"]
+
+[ext_resource type="Script" uid="uid://b1vqfp0jv5b2v" path="res://scenes/granny.gd" id="1_7qf0l"]
+[ext_resource type="Texture2D" uid="uid://crfyvl6ifceur" path="res://assets/textures/granny.png" id="8_v76k6"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rjbu2"]
+height = 0.664917
+radius = 0.16
+
+[node name="Grandma" type="Node3D"]
+script = ExtResource("1_7qf0l")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32939002, 0)
+pixel_size = 0.02
+billboard = 2
+texture_filter = 2
+render_priority = 1
+texture = ExtResource("8_v76k6")
+
+[node name="DeathArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33172607, 0)
+shape = SubResource("CylinderShape3D_rjbu2")
+debug_color = Color(0.9787052, 0, 0.16637918, 0.41960785)
