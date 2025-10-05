@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://dlhki6ih13wds"]
+[gd_scene load_steps=50 format=3 uid="uid://dlhki6ih13wds"]
 
 [ext_resource type="Script" uid="uid://ufcjwy02k8uo" path="res://camera.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://k3q0idr2tf81" path="res://scenes/car.tscn" id="2_272bh"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cw676sux01gpn" path="res://scenes/road_piece.tscn" id="6_kek77"]
 [ext_resource type="PackedScene" uid="uid://w0wl86slel28" path="res://scenes/streetlamp.tscn" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bisocnccuvmb0" path="res://scenes/waypoint_marker.tscn" id="7_272bh"]
+[ext_resource type="Script" uid="uid://dyyja78omq2ot" path="res://tax_label.gd" id="8_1u8w0"]
 [ext_resource type="Texture2D" uid="uid://drxt0un05kr48" path="res://assets/textures/ninep.png" id="10_4c57u"]
 [ext_resource type="Script" uid="uid://c2en0h4p1rk7n" path="res://radio_label.gd" id="10_cegan"]
 [ext_resource type="Script" uid="uid://bibtfpw5swqim" path="res://cash_ui.gd" id="11_dg77c"]
@@ -477,6 +478,7 @@ offset_bottom = 89.0
 theme_override_font_sizes/normal_font_size = 14
 text = "Time until tax ($300): 1m 13s "
 horizontal_alignment = 1
+script = ExtResource("8_1u8w0")
 
 [node name="RadioLabel" type="RichTextLabel" parent="CanvasLayer/Header" node_paths=PackedStringArray("radio")]
 self_modulate = Color(0.7270002, 0.58000004, 1, 1)
@@ -485,6 +487,7 @@ offset_left = -258.0
 offset_top = 101.0
 offset_right = 259.0
 offset_bottom = 141.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.23529412)
 theme_override_font_sizes/normal_font_size = 14
 text = "Driving on Gobuth Street"
 horizontal_alignment = 1
