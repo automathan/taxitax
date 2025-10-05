@@ -4,7 +4,7 @@ signal cash_changed
 signal game_over
 signal new_crime(String)
 
-var cash: float = 100
+var cash: float
 var tax_time: float
 var tax_amount: float
 var is_game_over: bool
@@ -21,10 +21,12 @@ func pay_tax():
 	tax_time = 150
 
 func reset():
+	cash = 100
 	tax_time = 150
 	tax_amount = 250
 	lifetime_earnings = 0
 	is_game_over = false
+	cash_changed.emit()
 
 func add_cash(value, crime_label: String = ''):
 	cash += value

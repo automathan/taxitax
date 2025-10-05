@@ -3,6 +3,7 @@ extends Node3D
 func _ready() -> void:
 	$CanvasLayer/Control/Button2.pressed.connect(func(): get_tree().quit())
 	$CanvasLayer/Control/Button3.pressed.connect(toggle_fullscreen)
+	$CanvasLayer/Control/Button.pressed.connect(func(): $"/root/Entry".load_game())
 
 func toggle_fullscreen():
 	if DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_WINDOWED:
