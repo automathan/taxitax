@@ -9,6 +9,10 @@ var engine_power = 600
 @onready var proxy_point = $CameraProxy
 @onready var engine_sfx = $AudioStreamPlayer3D
 
+@onready var sprite_passenger = $Sprite3D
+@onready var sprite_left = $Sprite3D2
+@onready var sprite_right = $Sprite3D3
+
 var busy: bool = false
 
 func _ready() -> void:
@@ -27,7 +31,10 @@ func _physics_process(delta: float) -> void:
 	sprite.speed_scale = linear_velocity.length()
 	engine_sfx.pitch_scale = .8 + linear_velocity.length() / 10
 	engine_sfx.volume_db = -40 + linear_velocity.length() * 1.4
+	sprite_passenger.visible = busy
+	sprite_right.visible = linear_velocity.length() > 2 and not Input.is_action_pressed('ui_right')
+	sprite_left.visible = linear_velocity.length() > 2 and not Input.is_action_pressed('ui_left')
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed('flip'):
-		apply_impulse(Vector3.UP.rotated(basis.y, .2) * 1000, Vector3(.6, 0 ,0))
+		apply_impulse(Vector3.UP.rotated(basis.y, .3) * 1500, Vector3(.6, 0 ,0))
