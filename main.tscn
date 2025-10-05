@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://dlhki6ih13wds"]
+[gd_scene load_steps=62 format=3 uid="uid://dlhki6ih13wds"]
 
 [ext_resource type="Script" uid="uid://ufcjwy02k8uo" path="res://camera.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://k3q0idr2tf81" path="res://scenes/car.tscn" id="2_272bh"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://da1wdcfxm0q27" path="res://radio.gd" id="13_ycdy4"]
 [ext_resource type="AudioStream" uid="uid://badilklb5ega6" path="res://assets/audio/radio/RADIO_FLUSS.ogg" id="14_074og"]
 [ext_resource type="AudioStream" uid="uid://bj428qjs84dfl" path="res://assets/audio/radio/RADIO_goblin.ogg" id="15_cegan"]
+[ext_resource type="PackedScene" uid="uid://dvy32ptf6ag5s" path="res://scenes/building_simple.tscn" id="15_kq58d"]
 [ext_resource type="Script" uid="uid://7w0pka6qy1m1" path="res://spawn_manager.gd" id="15_xuqvo"]
 [ext_resource type="AudioStream" uid="uid://dcciqrecdl5a1" path="res://assets/audio/radio/RADIO_GoingRogue.ogg" id="16_82xsv"]
 [ext_resource type="AudioStream" uid="uid://0q5sr26vp0no" path="res://assets/audio/radio/RADIO_Sang1.ogg" id="17_getpj"]
@@ -28,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://1u5p6tvyqu4l" path="res://assets/textures/fries.png" id="22_ryguw"]
 [ext_resource type="PackedScene" uid="uid://b04s38bsfk465" path="res://scenes/bom.tscn" id="23_d13ii"]
 [ext_resource type="PackedScene" uid="uid://bsw03ehwdwtlo" path="res://scenes/tree.tscn" id="25_lswn8"]
+[ext_resource type="PackedScene" uid="uid://b7pax7tjmyker" path="res://scenes/house.tscn" id="29_qsp4k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_top_color = Color(0.2, 0.28333336, 0.4, 1)
@@ -48,7 +50,20 @@ size = Vector2(80, 80)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
 albedo_color = Color(0.14767182, 0.14767179, 0.14767179, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_htxhm"]
+albedo_color = Color(0.124000005, 0.2, 0.120000005, 1)
+
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0xm2m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_seu75"]
+albedo_color = Color(0.48, 0.35704, 0.2256, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_htxhm"]
+render_priority = 0
+next_pass = SubResource("StandardMaterial3D_seu75")
+shader = ExtResource("4_1bvp3")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_threshold = 0.2
 
 [sub_resource type="BoxMesh" id="BoxMesh_d13ii"]
 
@@ -338,9 +353,35 @@ mesh = SubResource("PlaneMesh_7dm0k")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ig7tw")
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(0.7986627, 0, -0.012994051, 0, 1, 0, 0.07842215, 0, 0.13233335, 23.218843, 0.013335227, 31.26321)
+mesh = SubResource("PlaneMesh_7dm0k")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_htxhm")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 visible = false
 shape = SubResource("WorldBoundaryShape3D_0xm2m")
+
+[node name="Building" parent="Floor" instance=ExtResource("15_kq58d")]
+transform = Transform3D(0.19082037, 0, 0, 0, -1.2551251e-07, -1, 0, 2.8713915, -4.371139e-08, -4.628161, 0.36887416, 19.508347)
+surface_material_override/0 = SubResource("ShaderMaterial_htxhm")
+
+[node name="Building2" parent="Floor" instance=ExtResource("15_kq58d")]
+transform = Transform3D(0.10699238, 1.4632899, 0, 6.9065433e-09, -4.3312337e-08, -1, -0.1580033, 0.9908708, -4.371139e-08, -1.1902418, 0.36887327, 29.029198)
+surface_material_override/0 = SubResource("ShaderMaterial_htxhm")
+
+[node name="Building3" parent="Floor" instance=ExtResource("15_kq58d")]
+transform = Transform3D(0.06245242, 1.9526123, 0, 7.881647e-09, -2.9562244e-08, -1, -0.18031108, 0.67630535, -4.371139e-08, 6.434577, 0.36887327, 32.777466)
+surface_material_override/0 = SubResource("ShaderMaterial_htxhm")
+
+[node name="Building5" parent="Floor" instance=ExtResource("15_kq58d")]
+transform = Transform3D(-0.15509605, 1.2213767, 0, 4.8591695e-09, 7.448649e-08, -1, -0.11116485, -1.7040524, -4.371139e-08, 53.640163, 0.36887318, 33.87622)
+surface_material_override/0 = SubResource("ShaderMaterial_htxhm")
+
+[node name="Building4" parent="Floor" instance=ExtResource("15_kq58d")]
+transform = Transform3D(0.017808579, 7.96454, 0, 8.304618e-09, -3.2633164e-08, -1, -0.18998753, 0.7465601, -4.371139e-08, 30.828163, 0.36887324, 36.23675)
+surface_material_override/0 = SubResource("ShaderMaterial_htxhm")
 
 [node name="People" type="Node3D" parent="." node_paths=PackedStringArray("waypoints", "car", "dialogue")]
 script = ExtResource("15_xuqvo")
@@ -643,6 +684,18 @@ skeleton = NodePath("../../..")
 
 [node name="Building10" parent="Buildings/Gobuth" instance=ExtResource("5_5vw27")]
 transform = Transform3D(-0.09537667, 1.9451191, 0.31440055, 1.5962455, 0.08592196, 0.0923669, 0.09576163, 0.5050734, -1.226521, 10.062569, 0.86731726, 1.8803139)
+skeleton = NodePath("../../..")
+
+[node name="Building12" parent="Buildings/Gobuth" instance=ExtResource("5_5vw27")]
+transform = Transform3D(-7.002375e-08, 1.7645783, 1.1956823, -1.6019568, -7.7132185e-08, -5.2264934e-08, 0, -4.9445853, 0.42670417, 21.539865, 0.12630416, 15.315544)
+skeleton = NodePath("../../..")
+
+[node name="Building14" parent="Buildings/Gobuth" instance=ExtResource("5_5vw27")]
+transform = Transform3D(-9.557627, 0.46352246, -8.940697e-08, 8.543141e-07, 2.0485574e-08, -1.2695403, -2.017244, -2.1961522, 0, 5.3647895, 0.9746352, 23.301826)
+skeleton = NodePath("../../..")
+
+[node name="Building13" parent="Buildings/Gobuth" instance=ExtResource("5_5vw27")]
+transform = Transform3D(-7.002375e-08, -4.3188233, 0.72183037, -1.6019568, 1.8878173e-07, -3.155221e-08, 0, -2.9850335, -1.0443628, 26.021173, 0.12630397, 2.9500115)
 skeleton = NodePath("../../..")
 
 [node name="Building11" parent="Buildings/Gobuth" instance=ExtResource("5_5vw27")]
@@ -1248,6 +1301,42 @@ mesh = SubResource("BoxMesh_efxa6")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
 
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="Sidewalks"]
+transform = Transform3D(0.16379082, -0.9864952, 4.2753534e-09, -4.3614584e-08, -2.9075793e-09, 1, -0.9864952, -0.16379082, -4.3501803e-08, 9.971746, -0.43078366, -24.884035)
+mesh = SubResource("BoxMesh_efxa6")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="Sidewalks"]
+transform = Transform3D(0.16379082, -0.9864952, 4.2753534e-09, -4.3614584e-08, -2.9075793e-09, 1, -0.9864952, -0.16379082, -4.3501803e-08, 19.547459, -0.43078363, -23.29415)
+mesh = SubResource("BoxMesh_efxa6")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="Sidewalks"]
+transform = Transform3D(0.54510564, -1.0941794, 4.2753534e-09, -1.3224799e-07, -4.009922e-09, 1, -2.9864845, -0.19971418, -4.3501803e-08, 24.887783, -0.4307834, -17.922844)
+mesh = SubResource("BoxMesh_efxa6")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="Sidewalks"]
+transform = Transform3D(3.033573, 0.059065957, 4.2753534e-09, -7.883843e-09, -6.6925594e-08, 1, 0.11690922, -1.5326507, -4.3501803e-08, 29.543343, -0.4307833, -10.314257)
+mesh = SubResource("BoxMesh_efxa6")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="Sidewalks"]
+transform = Transform3D(0.22530814, -0.9742877, 4.2753534e-09, -4.3346542e-08, -5.635885e-09, 1, -0.9742877, -0.22530814, -4.3501803e-08, 0.22035463, -0.4307837, -26.829899)
+mesh = SubResource("BoxMesh_efxa6")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="Sidewalks"]
+transform = Transform3D(-0.93472666, -0.35536802, 4.2753534e-09, -1.1462861e-08, 4.218162e-08, 1, -0.35536802, 0.93472666, -4.3501803e-08, 0.572297, -0.43078354, -23.269026)
+mesh = SubResource("BoxMesh_efxa6")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
+
 [node name="MeshInstance3D11" type="MeshInstance3D" parent="Sidewalks"]
 transform = Transform3D(0.9952052, 0.097808704, 4.2753543e-09, 0, -4.371139e-08, 1, 0.097808704, -0.9952052, -4.3501803e-08, 1.4871047, -0.43078268, -11.952744)
 mesh = SubResource("BoxMesh_efxa6")
@@ -1262,6 +1351,30 @@ surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
 
 [node name="MeshInstance3D14" type="MeshInstance3D" parent="Sidewalks"]
 transform = Transform3D(-0.115301274, -0.9933306, 4.2753534e-09, -4.2718717e-08, 9.262649e-09, 1, -0.9933306, 0.115301274, -4.35018e-08, 7.3500543, -0.43078196, 1.3575643)
+mesh = SubResource("BoxMesh_efxa6")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="Sidewalks"]
+transform = Transform3D(0.49064898, -0.9743073, 4.2753534e-09, -9.443158e-08, -5.632106e-09, 1, -2.12253, -0.22522312, -4.35018e-08, 9.024499, -0.43078095, 24.592627)
+mesh = SubResource("BoxMesh_efxa6")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="Sidewalks"]
+transform = Transform3D(0.10900164, -1.39606, 4.2753534e-09, -9.511607e-08, 2.9261458e-09, 1, -2.1757731, -0.06993963, -4.35018e-08, 23.14322, -0.43078092, 26.354921)
+mesh = SubResource("BoxMesh_efxa6")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="Sidewalks"]
+transform = Transform3D(-0.115266964, -1.7223487, 4.275353e-09, -9.414319e-08, 1.1333586e-08, 1, -2.1754498, 0.09125927, -4.35018e-08, 41.263905, -0.43078098, 26.408743)
+mesh = SubResource("BoxMesh_efxa6")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="Sidewalks"]
+transform = Transform3D(0.78499854, -0.7427177, 4.2753534e-09, -9.175848e-08, -9.305447e-09, 1, -2.0321534, -0.28690365, -4.35018e-08, 1.4450845, -0.43078104, 22.365232)
 mesh = SubResource("BoxMesh_efxa6")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
@@ -1283,3 +1396,15 @@ transform = Transform3D(0.9956535, -0.093135215, 4.2753534e-09, -8.308321e-09, -
 mesh = SubResource("BoxMesh_kek77")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_ycdy4")
+
+[node name="Building" parent="Sidewalks" instance=ExtResource("29_qsp4k")]
+transform = Transform3D(0.85736513, 0, -0.5147089, 0, 1, 0, 0.51470894, 0, 0.857365, 34.145397, 0.29350448, 26.207869)
+
+[node name="Building2" parent="Sidewalks" instance=ExtResource("29_qsp4k")]
+transform = Transform3D(0.85736513, 0, -0.5147089, 0, 1, 0, 0.51470894, 0, 0.857365, 35.966026, 0.29350448, 26.207869)
+
+[node name="Building3" parent="Sidewalks" instance=ExtResource("29_qsp4k")]
+transform = Transform3D(0.85736513, 0, -0.5147089, 0, 1, 0, 0.51470894, 0, 0.857365, 37.782642, 0.29350448, 26.207869)
+
+[node name="Building4" parent="Sidewalks" instance=ExtResource("29_qsp4k")]
+transform = Transform3D(0.85736513, 0, -0.5147089, 0, 1, 0, 0.51470894, 0, 0.857365, 39.65554, 0.29350448, 26.207869)

@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b04s38bsfk465"]
+[gd_scene load_steps=4 format=3 uid="uid://b04s38bsfk465"]
 
+[ext_resource type="Script" uid="uid://gr5cjuthkoe" path="res://scenes/bom.gd" id="1_5nvph"]
 [ext_resource type="Texture2D" uid="uid://cdefao4rvdadl" path="res://assets/textures/bom.png" id="1_ivfjx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d13ii"]
@@ -7,17 +8,23 @@ size = Vector3(0.61021423, 0.63994217, 0.30140686)
 
 [node name="Bom" type="RigidBody3D"]
 mass = 0.07
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_5nvph")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 0.29668862, 0.02)
 pixel_size = 0.02
 texture_filter = 2
+render_priority = 1
 texture = ExtResource("1_ivfjx")
 
 [node name="Sprite3D2" type="Sprite3D" parent="."]
 transform = Transform3D(-1, -4.371139e-08, 7.5710346e-08, 0, 0.8660254, 0.5, -8.742278e-08, 0.5, -0.8660254, 0, 0.297, -0.02)
 pixel_size = 0.02
 texture_filter = 2
+render_priority = 1
 texture = ExtResource("1_ivfjx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

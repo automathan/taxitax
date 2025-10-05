@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://b7pax7tjmyker"]
+
+[ext_resource type="Shader" uid="uid://c0sj1qhrf8m6g" path="res://cel.gdshader" id="1_qtlar"]
+[ext_resource type="Texture2D" uid="uid://s1wgiuyjcpys" path="res://assets/textures/window.png" id="2_rk7hg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0xm2m"]
+size = Vector3(1.5, 3, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
+albedo_color = Color(0.60040003, 0.73944, 0.79, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lquwl"]
+render_priority = 0
+next_pass = SubResource("StandardMaterial3D_1bvp3")
+shader = ExtResource("1_qtlar")
+shader_parameter/outline_color = Color(0.1875, 0.23020834, 0.25, 1)
+shader_parameter/outline_threshold = 0.2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uvy8r"]
+size = Vector3(1.5, 5, 1.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qtlar"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rk7hg"]
+albedo_color = Color(0.52, 0.30766666, 0.2652, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_se78b"]
+render_priority = 0
+next_pass = SubResource("StandardMaterial3D_rk7hg")
+shader = ExtResource("1_qtlar")
+shader_parameter/outline_color = Color(0.1875, 0.23020834, 0.25, 1)
+shader_parameter/outline_threshold = 0.2
+
+[node name="Building" type="MeshInstance3D"]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_0xm2m")
+surface_material_override/0 = SubResource("ShaderMaterial_lquwl")
+
+[node name="Sprite3D3" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.286712, 0.4741075, 0.75432014)
+pixel_size = 0.02
+texture_filter = 0
+texture = ExtResource("2_rk7hg")
+
+[node name="Sprite3D4" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2668723, 1.0284446, 0.75432014)
+texture_filter = 0
+texture = ExtResource("2_rk7hg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_uvy8r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7855699, 0.7855698, 0, -0.78556997, 0.78556985, 0, 0, 0, 1.4257938, 0, 1.5076139, 0)
+mesh = SubResource("BoxMesh_qtlar")
+surface_material_override/0 = SubResource("ShaderMaterial_se78b")
