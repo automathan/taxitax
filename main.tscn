@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://dlhki6ih13wds"]
+[gd_scene load_steps=57 format=3 uid="uid://dlhki6ih13wds"]
 
 [ext_resource type="Script" uid="uid://ufcjwy02k8uo" path="res://camera.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://k3q0idr2tf81" path="res://scenes/car.tscn" id="2_272bh"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://da1wdcfxm0q27" path="res://radio.gd" id="13_ycdy4"]
 [ext_resource type="AudioStream" uid="uid://badilklb5ega6" path="res://assets/audio/radio/RADIO_FLUSS.ogg" id="14_074og"]
 [ext_resource type="AudioStream" uid="uid://bj428qjs84dfl" path="res://assets/audio/radio/RADIO_goblin.ogg" id="15_cegan"]
+[ext_resource type="Script" uid="uid://7w0pka6qy1m1" path="res://spawn_manager.gd" id="15_xuqvo"]
 [ext_resource type="AudioStream" uid="uid://dcciqrecdl5a1" path="res://assets/audio/radio/RADIO_GoingRogue.ogg" id="16_82xsv"]
 [ext_resource type="AudioStream" uid="uid://0q5sr26vp0no" path="res://assets/audio/radio/RADIO_Sang1.ogg" id="17_getpj"]
 [ext_resource type="AudioStream" uid="uid://btl1img4ipgq5" path="res://assets/audio/radio/RADIO_Taxi.ogg" id="18_ryguw"]
@@ -34,12 +35,12 @@ sky_horizon_color = Color(0.83, 0.72044, 0.5312, 1)
 ground_bottom_color = Color(0.22379607, 0.32115266, 0.44152558, 1)
 ground_horizon_color = Color(0.15190001, 0.17298, 0.31, 1)
 
-[sub_resource type="Sky" id="Sky_ig7tw"]
+[sub_resource type="Sky" id="Sky_qsp4k"]
 sky_material = SubResource("ProceduralSkyMaterial_7dm0k")
 
 [sub_resource type="Environment" id="Environment_0xm2m"]
 background_mode = 2
-sky = SubResource("Sky_ig7tw")
+sky = SubResource("Sky_qsp4k")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7dm0k"]
 size = Vector2(80, 80)
@@ -141,12 +142,12 @@ shader_parameter/outline_threshold = 0.2
 [sub_resource type="BoxMesh" id="BoxMesh_efxa6"]
 size = Vector3(1, 10, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dg77c"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kq58d"]
 albedo_color = Color(0.21, 0.19725999, 0.1806, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ycdy4"]
 render_priority = 0
-next_pass = SubResource("StandardMaterial3D_dg77c")
+next_pass = SubResource("StandardMaterial3D_kq58d")
 shader = ExtResource("4_1bvp3")
 shader_parameter/outline_color = Color(0.14767182, 0.14767179, 0.14767179, 1)
 shader_parameter/outline_threshold = 0.2
@@ -341,7 +342,12 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ig7tw")
 visible = false
 shape = SubResource("WorldBoundaryShape3D_0xm2m")
 
-[node name="People" type="Node3D" parent="."]
+[node name="People" type="Node3D" parent="." node_paths=PackedStringArray("waypoints", "car", "dialogue")]
+script = ExtResource("15_xuqvo")
+customer_scene = ExtResource("6_5vw27")
+waypoints = NodePath("../Waypoints")
+car = NodePath("../Car")
+dialogue = NodePath("../CanvasLayer/Footer/NinePatchRect")
 metadata/_edit_lock_ = true
 
 [node name="Customer" parent="People" node_paths=PackedStringArray("waypoints", "car", "dialogue") instance=ExtResource("6_5vw27")]
@@ -461,6 +467,9 @@ dialogue = NodePath("../../CanvasLayer/Footer/NinePatchRect")
 [node name="Grandma" parent="People" instance=ExtResource("12_0odxb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9107003, 0, -0.721915)
 splat_scene = ExtResource("9_lswn8")
+
+[node name="Timer" type="Timer" parent="People"]
+autostart = true
 
 [node name="Waypoints" type="Node3D" parent="."]
 script = ExtResource("19_82xsv")
