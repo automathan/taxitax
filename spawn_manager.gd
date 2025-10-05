@@ -20,7 +20,7 @@ func _ready() -> void:
 func try_spawn():
 	for key in spawn_points:
 		if not spawn_points[key]:
-			if randi() % 20 != 0:
+			if randi() % 60 != 0:
 				continue
 
 			var customer = customer_scene.instantiate()
