@@ -10,6 +10,7 @@ extends Node3D
 @export var car: Node3D
 @export var dialogue: Control
 @export var sprite_variants: Array[Texture2D]
+@export var splat_scene: PackedScene
 
 var pickup_template = 'Picking Up\n[%s%s%s%s%s]'
 var entering: bool = false
@@ -26,9 +27,16 @@ func _death_area_entered(other: Area3D):
 	var parent = other.get_parent()
 
 	if parent is Car:
-		print('KILLED')
-		Economy.add_cash(-40)
-		queue_free()
+		die()
+
+func die():
+	print('KILLED')
+	Economy.add_cash(-40)
+	var splat = splat_scene.instantiate()
+	get_parent().add_child(splat)
+	splat.global_position = global_position
+	queue_free()
+
 
 func pick_up():
 	if not car.busy:

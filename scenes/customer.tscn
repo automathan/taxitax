@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cj25b8g2m2j31"]
+[gd_scene load_steps=12 format=3 uid="uid://cj25b8g2m2j31"]
 
 [ext_resource type="Script" uid="uid://bidrsty4f5le2" path="res://scenes/customer.gd" id="1_8qg4y"]
 [ext_resource type="Texture2D" uid="uid://dpnnqp601ilf1" path="res://assets/textures/dude.png" id="2_rjbu2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dkywjxvjtrydg" path="res://assets/textures/woman2.png" id="5_w2wat"]
 [ext_resource type="AudioStream" uid="uid://cg58agmkgnu6u" path="res://assets/audio/pluck.mp3" id="6_846g6"]
 [ext_resource type="Texture2D" uid="uid://bibeoxkqpgtud" path="res://assets/textures/dude3.png" id="6_pk6lr"]
+[ext_resource type="PackedScene" uid="uid://ci2leoo0piktl" path="res://scenes/splat.tscn" id="7_pk6lr"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_8qg4y"]
 height = 1.0007324
@@ -20,6 +21,7 @@ radius = 0.13720703
 [node name="Customer" type="Node3D"]
 script = ExtResource("1_8qg4y")
 sprite_variants = Array[Texture2D]([ExtResource("2_rjbu2"), ExtResource("3_846g6"), ExtResource("4_qj8gj"), ExtResource("5_w2wat"), ExtResource("6_pk6lr")])
+splat_scene = ExtResource("7_pk6lr")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32939002, 0)
