@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ci2leoo0piktl"]
 
-[ext_resource type="Script" uid="uid://3fmh7w1upt10" path="res://splat.gd" id="1_qrkj2"]
+[ext_resource type="Script" uid="uid://3fmh7w1upt10" path="res://scenes/splat.gd" id="1_qrkj2"]
 [ext_resource type="SpriteFrames" uid="uid://cesa5dveyr2yk" path="res://assets/animations/splat.tres" id="2_63q5w"]
 [ext_resource type="AudioStream" uid="uid://bm3pk0wnyaocn" path="res://assets/audio/splat.mp3" id="3_opduc"]
 

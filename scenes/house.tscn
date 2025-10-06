@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://b7pax7tjmyker"]
 
-[ext_resource type="Shader" uid="uid://c0sj1qhrf8m6g" path="res://cel.gdshader" id="1_qtlar"]
+[ext_resource type="Shader" uid="uid://c0sj1qhrf8m6g" path="res://assets/cel.gdshader" id="1_qtlar"]
 [ext_resource type="Texture2D" uid="uid://s1wgiuyjcpys" path="res://assets/textures/window.png" id="2_rk7hg"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0xm2m"]

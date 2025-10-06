@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://k3q0idr2tf81"]
 
-[ext_resource type="Script" uid="uid://bwtqtyou4avfi" path="res://car.gd" id="1_qt2eu"]
+[ext_resource type="Script" uid="uid://bwtqtyou4avfi" path="res://scenes/car.gd" id="1_qt2eu"]
 [ext_resource type="SpriteFrames" uid="uid://cdbjj24erxbmb" path="res://assets/animations/car.tres" id="2_50v30"]
 [ext_resource type="AudioStream" uid="uid://dyjmagg1gt6os" path="res://assets/audio/motor_loop.mp3" id="3_50v30"]
 [ext_resource type="Texture2D" uid="uid://duhxxml5ec5x3" path="res://assets/textures/car_passenger.png" id="3_jtldb"]

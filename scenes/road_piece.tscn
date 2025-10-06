@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cw676sux01gpn"]
 
-[ext_resource type="Shader" uid="uid://c0sj1qhrf8m6g" path="res://cel.gdshader" id="1_eav4p"]
+[ext_resource type="Shader" uid="uid://c0sj1qhrf8m6g" path="res://assets/cel.gdshader" id="1_eav4p"]
 [ext_resource type="Texture2D" uid="uid://dxrfv0ijlitbf" path="res://assets/textures/road_details.png" id="2_iemec"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_lquwl"]
